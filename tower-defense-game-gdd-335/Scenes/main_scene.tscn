@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d2osb17w38dcu"]
+
+[ext_resource type="Script" uid="uid://cgtwdjqauqmrc" path="res://Scripts/Level.gd" id="1_52fb6"]
+[ext_resource type="Script" uid="uid://2tf72ya0pj8j" path="res://Scripts/cam.gd" id="2_6l7je"]
+[ext_resource type="Script" uid="uid://dvj0argxxil82" path="res://Scripts/enemy_manager.gd" id="3_jv6wh"]
+
+[node name="MainScene" type="Node2D" unique_id=1004797404]
+script = ExtResource("1_52fb6")
+tileSize = 100
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1129812152]
+zoom = Vector2(0.22, 0.22)
+script = ExtResource("2_6l7je")
+
+[node name="EnemyManager" type="Node2D" parent="." unique_id=557131222]
+script = ExtResource("3_jv6wh")

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b1nfe10kucnoj"]
+
+[ext_resource type="Texture2D" uid="uid://blth6nj4lte07" path="res://Sprites/background.png" id="1_f8cdk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8cdk"]
+size = Vector2(30, 30)
+
+[node name="Projectile" type="CharacterBody2D" unique_id=1770956246]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1681019306]
+shape = SubResource("RectangleShape2D_f8cdk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2062924127]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_f8cdk")
