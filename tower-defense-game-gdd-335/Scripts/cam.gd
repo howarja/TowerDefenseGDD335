@@ -12,8 +12,8 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		if event.button_mask == MOUSE_BUTTON_MASK_MIDDLE:
-			position -= event.relative * (zoom*ZOOM_MOVE_MULTIPLIER);
+		if event.button_mask == MOUSE_BUTTON_MASK_RIGHT:
+			position -= event.relative / (zoom*ZOOM_MOVE_MULTIPLIER);
 			
 	if event is InputEventMouseButton:
 		if event.is_pressed():
