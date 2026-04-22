@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cy8l8ds31b7kp"]
+
+[ext_resource type="Texture2D" uid="uid://blth6nj4lte07" path="res://Sprites/background.png" id="1_iup43"]
+
+[node name="EmptyTower" type="Node2D" unique_id=995732225]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097807904]
+texture = ExtResource("1_iup43")
