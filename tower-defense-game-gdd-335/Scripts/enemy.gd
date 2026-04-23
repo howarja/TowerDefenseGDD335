@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
 @export var speed: float = 5.0;
-@export var damage: float = 5.0;
+@export var damageDeal: float = 5.0;
 @export var damageCooldown: float = 0.1;
 var currentDamageCooldown: float = 0;
+
+@export var maxHealth: float = 100;
+var currentHealth: float = 100;
 
 var target;
 
@@ -21,7 +24,7 @@ func _physics_process(delta: float) -> void:
 		var collision = kinematicCollision.get_collider();
 		if collision.is_in_group("Buildings"):
 			if currentDamageCooldown <= 0:
-				collision.damage(damage);
+				collision.damage(damageDeal);
 				currentDamageCooldown = damageCooldown;
 			
 	currentDamageCooldown -= delta;
@@ -29,3 +32,9 @@ func _physics_process(delta: float) -> void:
 func setTarget(newTarget):
 	# set the target for the enemy to move towards
 	target = newTarget;
+	
+func damage(amount: float):
+	# lower the health of this tower, queueFree if tower has no health
+	currentHealth -= amount;
+	if currentHealth <= 0:
+		queue_free();

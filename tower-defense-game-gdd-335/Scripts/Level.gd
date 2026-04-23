@@ -8,6 +8,7 @@ var tiles = [];
 @onready var tile = preload("res://Scenes/Towers/tile.tscn");
 @onready var emptyTower = preload("res://Scenes/Towers/emptyBuilding.tscn");
 @onready var centralBuilding = preload("res://Scenes/Towers/centralBuilding.tscn");
+@onready var shootingTower = preload("res://Scenes/Towers/ShootingTower.tscn");
 
 @onready var enemyManger = $EnemyManager;
 
@@ -43,4 +44,4 @@ func _input(event: InputEvent) -> void:
 	# Spawn a building when the mouse is clicked
 	if event.is_action_pressed("Primary"):
 		var mousePos = (get_global_mouse_position()+Vector2.ONE*tileSize/2)/tileSize;
-		replaceTile(mousePos, emptyTower);
+		replaceTile(mousePos, shootingTower);
