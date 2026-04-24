@@ -14,6 +14,10 @@ config/name="TowerDefenseGameGDD335"
 run/main_scene="uid://d2osb17w38dcu"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
+[autoload]
+
+Globals="*uid://b560ld7udebt7"
+
 [dotnet]
 
 project/assembly_name="TowerDefenseGameGDD335"

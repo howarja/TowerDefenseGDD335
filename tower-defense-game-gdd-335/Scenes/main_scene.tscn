@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://cgtwdjqauqmrc" path="res://Scripts/Level.gd" id="1_52fb6"]
 [ext_resource type="Script" uid="uid://2tf72ya0pj8j" path="res://Scripts/cam.gd" id="2_6l7je"]
 [ext_resource type="Script" uid="uid://dvj0argxxil82" path="res://Scripts/enemy_manager.gd" id="3_jv6wh"]
+[ext_resource type="Script" uid="uid://cu5hpviry8edp" path="res://Scripts/player_manager.gd" id="4_iacmt"]
+[ext_resource type="PackedScene" uid="uid://cttxol4pj5v53" path="res://Scenes/ui.tscn" id="5_6ev3c"]
+[ext_resource type="Resource" uid="uid://iw8a16lqdq62" path="res://BuildingDatas/ShootingTower.tres" id="5_maf8m"]
+[ext_resource type="Script" uid="uid://duu0e2cpaind6" path="res://ui.gd" id="6_6ev3c"]
 
 [node name="MainScene" type="Node2D" unique_id=1004797404]
 script = ExtResource("1_52fb6")
@@ -14,3 +18,10 @@ script = ExtResource("2_6l7je")
 
 [node name="EnemyManager" type="Node2D" parent="." unique_id=557131222]
 script = ExtResource("3_jv6wh")
+
+[node name="PlayerManager" type="Node2D" parent="." unique_id=1572353153]
+script = ExtResource("4_iacmt")
+selectedBuilding = ExtResource("5_maf8m")
+
+[node name="UI" parent="." unique_id=1517868707 instance=ExtResource("5_6ev3c")]
+script = ExtResource("6_6ev3c")

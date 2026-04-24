@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://iw8a16lqdq62"]
+
+[ext_resource type="PackedScene" uid="uid://btgmok1fl2jes" path="res://Scenes/Towers/ShootingTower.tscn" id="1_8riab"]
+[ext_resource type="Script" uid="uid://d08b2jyucj67r" path="res://Scripts/buildingData.gd" id="2_861hw"]
+[ext_resource type="Script" uid="uid://dpdumby43vmb1" path="res://Resources.gd" id="2_hpl4r"]
+
+[sub_resource type="Resource" id="Resource_k8inc"]
+script = ExtResource("2_hpl4r")
+iron = 15
+gold = 3
+coal = 5
+wood = 2
+metadata/_custom_type_script = "uid://dpdumby43vmb1"
+
+[resource]
+script = ExtResource("2_861hw")
+ironCost = 30
+goldCost = 5
+coalCost = 1
+woodCost = 2
+buildingScene = ExtResource("1_8riab")
+cost = SubResource("Resource_k8inc")
+metadata/_custom_type_script = "uid://d08b2jyucj67r"
