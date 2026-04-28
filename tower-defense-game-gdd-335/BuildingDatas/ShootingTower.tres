@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://btgmok1fl2jes" path="res://Scenes/Towers/ShootingTower.tscn" id="1_8riab"]
 [ext_resource type="Script" uid="uid://d08b2jyucj67r" path="res://Scripts/buildingData.gd" id="2_861hw"]
-[ext_resource type="Script" uid="uid://dpdumby43vmb1" path="res://Resources.gd" id="2_hpl4r"]
+[ext_resource type="Script" uid="uid://dpdumby43vmb1" path="res://Scripts/Resources.gd" id="2_hpl4r"]
 
 [sub_resource type="Resource" id="Resource_k8inc"]
 script = ExtResource("2_hpl4r")

@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cu5hpviry8edp" path="res://Scripts/player_manager.gd" id="4_iacmt"]
 [ext_resource type="PackedScene" uid="uid://cttxol4pj5v53" path="res://Scenes/ui.tscn" id="5_6ev3c"]
 [ext_resource type="Resource" uid="uid://iw8a16lqdq62" path="res://BuildingDatas/ShootingTower.tres" id="5_maf8m"]
-[ext_resource type="Script" uid="uid://duu0e2cpaind6" path="res://ui.gd" id="6_6ev3c"]
+[ext_resource type="Script" uid="uid://duu0e2cpaind6" path="res://Scripts/ui.gd" id="6_6ev3c"]
 
 [node name="MainScene" type="Node2D" unique_id=1004797404]
 script = ExtResource("1_52fb6")

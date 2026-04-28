@@ -5,7 +5,7 @@ var resources: Resources = Resources.new();
 @onready var level = $"..";
 @onready var ui = $"../UI";
 
-@export var selectedBuilding: BuildingData;
+var selectedBuilding: BuildingData;
 
 func _ready() -> void:
 	Globals.playerManager = self;
@@ -13,7 +13,10 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	# Spawn a building when the mouse is clicked
-	if event.is_action_pressed("Primary"):
+	if event.is_action_pressed("Primary") && selectedBuilding != null:
 		level.placeBuilding(selectedBuilding.buildingScene);
 		resources._costResources(selectedBuilding.cost);
 		ui.updateResourceText(resources);
+
+func setSelectedBuilding(newSelection: BuildingData):
+	selectedBuilding = newSelection;

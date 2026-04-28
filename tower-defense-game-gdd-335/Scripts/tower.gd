@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 		for i in enemies.size():
 			if position.distance_to(enemies[i].position) < bestDist:
 				targetIndex = i;
-				print('in range');
 		if targetIndex >= 0:
 			shoot(enemies[targetIndex].position - position);
 			currentShootDelay = shootDelay;
