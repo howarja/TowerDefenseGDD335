@@ -30,6 +30,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 Buildings=""
 Enemies=""
+OreDeposits="For tiles that are ore deposits"
 
 [input]
 

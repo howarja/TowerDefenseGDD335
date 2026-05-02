@@ -14,10 +14,6 @@ metadata/_custom_type_script = "uid://dpdumby43vmb1"
 
 [resource]
 script = ExtResource("2_861hw")
-ironCost = 30
-goldCost = 5
-coalCost = 1
-woodCost = 2
 buildingScene = ExtResource("1_8riab")
 cost = SubResource("Resource_k8inc")
 metadata/_custom_type_script = "uid://d08b2jyucj67r"

@@ -5,6 +5,7 @@ var resources: Resources = Resources.new();
 @onready var level = $"..";
 @onready var ui = $"../UI";
 
+var interactable: bool = true;
 var selectedBuilding: BuildingData;
 
 func _ready() -> void:
@@ -13,10 +14,16 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	# Spawn a building when the mouse is clicked
-	if event.is_action_pressed("Primary") && selectedBuilding != null:
-		level.placeBuilding(selectedBuilding.buildingScene);
-		resources._costResources(selectedBuilding.cost);
-		ui.updateResourceText(resources);
+	if event.is_action_pressed("Primary") && selectedBuilding != null && interactable:
+		if level.placeBuilding(selectedBuilding):
+			addResources(selectedBuilding.cost);
 
 func setSelectedBuilding(newSelection: BuildingData):
 	selectedBuilding = newSelection;
+	
+func addResources(newResources: Resources):
+	resources._costResources(newResources);
+	ui.updateResourceText(resources);
+	
+func setInteractability(newInteractable: bool):
+	interactable = newInteractable;

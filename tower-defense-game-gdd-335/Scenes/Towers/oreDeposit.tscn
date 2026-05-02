@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ccfqngtp5tnq5"]
+
+[ext_resource type="Texture2D" uid="uid://1jv15rvtkqq8" path="res://Sprites/Tile.png" id="1_ovey8"]
+
+[node name="OreDeposit" type="Node2D" unique_id=995732225 groups=["OreDeposits"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097807904]
+modulate = Color(0.27022192, 0.27022192, 0.2702219, 0.39607844)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_ovey8")

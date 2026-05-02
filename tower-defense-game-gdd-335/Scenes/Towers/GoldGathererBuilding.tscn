@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b1vyfuesb36fr"]
+
+[ext_resource type="PackedScene" uid="uid://cy8l8ds31b7kp" path="res://Scenes/Towers/emptyBuilding.tscn" id="1_w7a6f"]
+[ext_resource type="Script" uid="uid://d57tkxgy2rdm" path="res://Scripts/ResourceGatherer.gd" id="2_kkhuv"]
+[ext_resource type="Script" uid="uid://dpdumby43vmb1" path="res://Scripts/Resources.gd" id="3_2uwiy"]
+
+[sub_resource type="Resource" id="Resource_ky7yv"]
+script = ExtResource("3_2uwiy")
+gold = 5
+metadata/_custom_type_script = "uid://dpdumby43vmb1"
+
+[node name="EmptyTower" unique_id=1694176448 instance=ExtResource("1_w7a6f")]
+script = ExtResource("2_kkhuv")
+resourceGain = SubResource("Resource_ky7yv")
+gainTime = 1.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=1097807904]
+modulate = Color(0.95357186, 0, 0.012985484, 1)

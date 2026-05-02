@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://fsw8r2g34fq1" path="res://Scenes/building_selection_button.tscn" id="1_jxero"]
 [ext_resource type="Resource" uid="uid://iw8a16lqdq62" path="res://BuildingDatas/ShootingTower.tres" id="2_qdvrb"]
 [ext_resource type="Resource" uid="uid://ci78atagsl0wm" path="res://BuildingDatas/Wall.tres" id="3_nf4gj"]
+[ext_resource type="Resource" uid="uid://dg7vr4jjynabd" path="res://BuildingDatas/GoldGatherer.tres" id="4_2246s"]
 
 [node name="UI" type="CanvasLayer" unique_id=1517868707]
 
@@ -16,9 +17,10 @@ Wood:"
 
 [node name="BoxContainer" type="HBoxContainer" parent="." unique_id=1417583709]
 offset_left = 296.0
-offset_top = 520.0
+offset_top = 576.0
 offset_right = 855.0
-offset_bottom = 570.0
+offset_bottom = 626.0
+alignment = 1
 
 [node name="BuildingSelectionButton" parent="BoxContainer" unique_id=576300492 instance=ExtResource("1_jxero")]
 layout_mode = 2
@@ -27,3 +29,7 @@ building = ExtResource("2_qdvrb")
 [node name="BuildingSelectionButton2" parent="BoxContainer" unique_id=1172946342 instance=ExtResource("1_jxero")]
 layout_mode = 2
 building = ExtResource("3_nf4gj")
+
+[node name="BuildingSelectionButton3" parent="BoxContainer" unique_id=1810515990 instance=ExtResource("1_jxero")]
+layout_mode = 2
+building = ExtResource("4_2246s")

@@ -7,6 +7,8 @@
 size = Vector2(100, 100)
 
 [node name="EmptyTower" type="StaticBody2D" unique_id=1694176448 groups=["Buildings"]]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_a66r1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097807904]
@@ -14,5 +16,4 @@ modulate = Color(0.96041924, 0.7511758, 0, 1)
 texture = ExtResource("2_brufa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2130231254]
-visible = false
 shape = SubResource("RectangleShape2D_imbhk")

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://dg7vr4jjynabd"]
+
+[ext_resource type="PackedScene" uid="uid://b1vyfuesb36fr" path="res://Scenes/Towers/GoldGathererBuilding.tscn" id="1_vjcqm"]
+[ext_resource type="Script" uid="uid://dpdumby43vmb1" path="res://Scripts/Resources.gd" id="2_jdueu"]
+[ext_resource type="Script" uid="uid://d08b2jyucj67r" path="res://Scripts/buildingData.gd" id="3_0whq0"]
+
+[sub_resource type="Resource" id="Resource_k8inc"]
+script = ExtResource("2_jdueu")
+iron = -15
+gold = -3
+coal = -5
+wood = -2
+metadata/_custom_type_script = "uid://dpdumby43vmb1"
+
+[resource]
+script = ExtResource("3_0whq0")
+buildingScene = ExtResource("1_vjcqm")
+cost = SubResource("Resource_k8inc")
+requiredTileGroup = "OreDeposits"
+metadata/_custom_type_script = "uid://d08b2jyucj67r"
