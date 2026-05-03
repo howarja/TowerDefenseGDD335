@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 			currentShootDelay = shootDelay;
 	else:
 		currentShootDelay -= delta;
-		
+
 func shoot(dir: Vector2):
 	var newBullet = projectile.instantiate();
 	newBullet.setUp(projectileSpeed, dir, projectileDamage);

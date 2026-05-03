@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://fiykttsjdmxa"]
+
+[ext_resource type="Texture2D" uid="uid://blth6nj4lte07" path="res://Sprites/background.png" id="1_m34ix"]
+[ext_resource type="Script" uid="uid://bukkmtbjr44sc" path="res://Scripts/health_bar.gd" id="2_qay8w"]
+
+[node name="HealthBar" type="Sprite2D" unique_id=784601734]
+scale = Vector2(1.755, 0.205)
+texture = ExtResource("1_m34ix")
+script = ExtResource("2_qay8w")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=249486635]
+position = Vector2(-50.14245, 0)
+
+[node name="Fill" type="Sprite2D" parent="Pivot" unique_id=1612471252]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(50.14245, 0)
+texture = ExtResource("1_m34ix")
+
+[node name="VisiblityTimer" type="Timer" parent="." unique_id=966046716]
+one_shot = true
+
+[connection signal="timeout" from="VisiblityTimer" to="." method="_on_visiblity_timer_timeout"]

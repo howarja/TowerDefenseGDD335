@@ -7,6 +7,7 @@ var currentDamageCooldown: float = 0;
 
 @export var maxHealth: float = 100;
 var currentHealth: float = 100;
+@onready var healthBar = $HealthBar;
 
 var target;
 
@@ -36,5 +37,6 @@ func setTarget(newTarget):
 func damage(amount: float):
 	# lower the health of this tower, queueFree if tower has no health
 	currentHealth -= amount;
+	healthBar.setPercent(currentHealth/maxHealth);
 	if currentHealth <= 0:
 		queue_free();

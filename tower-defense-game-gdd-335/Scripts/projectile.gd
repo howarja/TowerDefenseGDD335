@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 		if collision.is_in_group("Enemies"):
 			collision.damage(damage);
 			queue_free();
-			
+
 func setUp(newSpeed: float, newDir: Vector2, newDamage: float):
 	speed = newSpeed;
 	dir = newDir;

@@ -31,6 +31,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 Buildings=""
 Enemies=""
 OreDeposits="For tiles that are ore deposits"
+TrainTracks="Tracks for trains to move over the ground"
 
 [input]
 

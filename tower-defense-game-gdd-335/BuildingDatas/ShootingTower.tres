@@ -6,14 +6,16 @@
 
 [sub_resource type="Resource" id="Resource_k8inc"]
 script = ExtResource("2_hpl4r")
-iron = 15
-gold = 3
-coal = 5
-wood = 2
+iron = -15
+gold = -3
+coal = -5
+wood = -2
 metadata/_custom_type_script = "uid://dpdumby43vmb1"
 
 [resource]
 script = ExtResource("2_861hw")
 buildingScene = ExtResource("1_8riab")
+name = "Basic Shooter"
+description = "Shoots at nearby enemies"
 cost = SubResource("Resource_k8inc")
 metadata/_custom_type_script = "uid://d08b2jyucj67r"

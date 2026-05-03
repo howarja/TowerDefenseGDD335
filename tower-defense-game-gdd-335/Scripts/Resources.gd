@@ -6,7 +6,7 @@ class_name Resources
 @export var coal: int = 0;
 @export var wood: int = 0;
 
-func _costResources(cost: Resources):
+func addResources(cost: Resources):
 	iron += cost.iron;
 	gold += cost.gold;
 	coal += cost.coal;

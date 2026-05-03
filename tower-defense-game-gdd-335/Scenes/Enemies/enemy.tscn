@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://7vndgduwf75p" path="res://Scripts/enemy.gd" id="1_jcvw6"]
 [ext_resource type="Texture2D" uid="uid://blth6nj4lte07" path="res://Sprites/background.png" id="1_jjtjp"]
+[ext_resource type="PackedScene" uid="uid://fiykttsjdmxa" path="res://Scenes/health_bar.tscn" id="3_x1rqp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcvw6"]
 size = Vector2(100, 100)
@@ -18,3 +19,6 @@ texture = ExtResource("1_jjtjp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=527616215]
 shape = SubResource("RectangleShape2D_jcvw6")
+
+[node name="HealthBar" parent="." unique_id=784601734 instance=ExtResource("3_x1rqp")]
+position = Vector2(0, -100)

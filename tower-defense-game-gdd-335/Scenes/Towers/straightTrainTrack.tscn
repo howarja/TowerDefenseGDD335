@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://doypsmrjk4c4x"]
+
+[ext_resource type="PackedScene" uid="uid://cy8l8ds31b7kp" path="res://Scenes/Towers/emptyBuilding.tscn" id="1_kvtn1"]
+[ext_resource type="Script" uid="uid://ct633l305w71b" path="res://Scenes/Towers/trainTrack.gd" id="2_rge0n"]
+
+[node name="EmptyTower" unique_id=1694176448 groups=["TrainTracks"] instance=ExtResource("1_kvtn1")]
+script = ExtResource("2_rge0n")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1097807904]
+scale = Vector2(0.38400343, 1)

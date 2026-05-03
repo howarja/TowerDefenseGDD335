@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cttxol4pj5v53"]
 
-[ext_resource type="PackedScene" uid="uid://fsw8r2g34fq1" path="res://Scenes/building_selection_button.tscn" id="1_jxero"]
+[ext_resource type="PackedScene" uid="uid://fsw8r2g34fq1" path="res://Scenes/UI/building_selection_button.tscn" id="1_jxero"]
 [ext_resource type="Resource" uid="uid://iw8a16lqdq62" path="res://BuildingDatas/ShootingTower.tres" id="2_qdvrb"]
 [ext_resource type="Resource" uid="uid://ci78atagsl0wm" path="res://BuildingDatas/Wall.tres" id="3_nf4gj"]
 [ext_resource type="Resource" uid="uid://dg7vr4jjynabd" path="res://BuildingDatas/GoldGatherer.tres" id="4_2246s"]
+[ext_resource type="Resource" uid="uid://bv1ht80gdyspj" path="res://BuildingDatas/StraightTrainTrack.tres" id="5_1c2ca"]
+[ext_resource type="PackedScene" uid="uid://wj64h1ht7124" path="res://Scenes/UI/BuildingInfo.tscn" id="5_q7pk6"]
 
 [node name="UI" type="CanvasLayer" unique_id=1517868707]
 
@@ -16,10 +18,17 @@ Coal:
 Wood:"
 
 [node name="BoxContainer" type="HBoxContainer" parent="." unique_id=1417583709]
-offset_left = 296.0
-offset_top = 576.0
-offset_right = 855.0
-offset_bottom = 626.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -279.0
+offset_top = -82.0
+offset_right = 280.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
 alignment = 1
 
 [node name="BuildingSelectionButton" parent="BoxContainer" unique_id=576300492 instance=ExtResource("1_jxero")]
@@ -33,3 +42,15 @@ building = ExtResource("3_nf4gj")
 [node name="BuildingSelectionButton3" parent="BoxContainer" unique_id=1810515990 instance=ExtResource("1_jxero")]
 layout_mode = 2
 building = ExtResource("4_2246s")
+
+[node name="BuildingSelectionButton4" parent="BoxContainer" unique_id=1347514470 instance=ExtResource("1_jxero")]
+layout_mode = 2
+building = ExtResource("5_1c2ca")
+
+[node name="BuildingInfo" parent="." unique_id=816088641 instance=ExtResource("5_q7pk6")]
+visible = false
+offset_left = -279.0
+offset_top = -82.0
+offset_right = -97.0
+offset_bottom = 86.0
+pivot_offset = Vector2(43.158, 186.995)

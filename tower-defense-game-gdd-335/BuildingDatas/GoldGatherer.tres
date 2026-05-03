@@ -15,6 +15,8 @@ metadata/_custom_type_script = "uid://dpdumby43vmb1"
 [resource]
 script = ExtResource("3_0whq0")
 buildingScene = ExtResource("1_vjcqm")
+name = "Gold Gatherer"
+description = "Increase Gold, Can only be placed on Ore Deposits"
 cost = SubResource("Resource_k8inc")
 requiredTileGroup = "OreDeposits"
 metadata/_custom_type_script = "uid://d08b2jyucj67r"
