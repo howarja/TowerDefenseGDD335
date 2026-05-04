@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://blqlrt0jeujee"]
+
+[ext_resource type="PackedScene" uid="uid://cy8l8ds31b7kp" path="res://Scenes/Towers/emptyBuilding.tscn" id="1_eask0"]
+[ext_resource type="Script" uid="uid://dk8mn5hgoe1fu" path="res://Scripts/train.gd" id="2_1meaf"]
+
+[node name="EmptyTower" unique_id=1694176448 instance=ExtResource("1_eask0")]
+script = ExtResource("2_1meaf")
+
+[node name="MovementTimer" type="Timer" parent="." index="3" unique_id=2063605619]
+wait_time = 0.05
+autostart = true
+
+[connection signal="timeout" from="MovementTimer" to="." method="_on_movement_timer_timeout"]

@@ -10,6 +10,8 @@ extends "res://Scripts/building.gd"
 var currentShootDelay: float = 1;
 
 func _process(delta: float) -> void:
+	if !active:
+		return;
 	if currentShootDelay <= 0:
 		var enemies = get_tree().get_nodes_in_group("Enemies");
 		var bestDist = radius;

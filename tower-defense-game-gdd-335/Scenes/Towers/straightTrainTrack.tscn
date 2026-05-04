@@ -1,10 +1,17 @@
 [gd_scene format=3 uid="uid://doypsmrjk4c4x"]
 
 [ext_resource type="PackedScene" uid="uid://cy8l8ds31b7kp" path="res://Scenes/Towers/emptyBuilding.tscn" id="1_kvtn1"]
-[ext_resource type="Script" uid="uid://ct633l305w71b" path="res://Scenes/Towers/trainTrack.gd" id="2_rge0n"]
+[ext_resource type="Script" uid="uid://ct633l305w71b" path="res://Scripts/trainTrack.gd" id="2_rge0n"]
+[ext_resource type="Texture2D" uid="uid://blth6nj4lte07" path="res://Sprites/background.png" id="3_msjym"]
 
 [node name="EmptyTower" unique_id=1694176448 groups=["TrainTracks"] instance=ExtResource("1_kvtn1")]
 script = ExtResource("2_rge0n")
 
 [node name="Sprite2D" parent="." index="0" unique_id=1097807904]
 scale = Vector2(0.38400343, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="1" unique_id=359550554]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -37.5)
+scale = Vector2(0.38400343, 0.25)
+texture = ExtResource("3_msjym")
