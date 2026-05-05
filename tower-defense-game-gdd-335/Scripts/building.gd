@@ -5,8 +5,12 @@ var active: bool = false;
 var maxHealth: float = 100;
 var currentHealth: float = 100;
 @onready var healthBar = $HealthBar;
+@onready var collision = $CollisionShape2D;
 
 var dir: Vector2i = Vector2.UP;
+
+func _ready() -> void:
+	$CollisionShape2D.disabled = true;
 
 func damage(amount: float):
 	# lower the health of this tower, queueFree if tower has no health
@@ -25,7 +29,6 @@ func getSurroundingTiles():
 	tiles.append(Globals.level.getBuildingAt(selfGridPos+Vector2i.DOWN))
 	tiles.append(Globals.level.getBuildingAt(selfGridPos+Vector2i.RIGHT))
 	tiles.append(Globals.level.getBuildingAt(selfGridPos+Vector2i.LEFT))
-	print(tiles);
 	return tiles;
 	
 func getGroundTile():
@@ -37,3 +40,4 @@ func enable():
 	var rot = rotation - deg_to_rad(90);
 	var newDir = Vector2(cos(rot), sin(rot));
 	dir = newDir.normalized();
+	$CollisionShape2D.disabled = false;

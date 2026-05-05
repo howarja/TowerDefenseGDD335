@@ -1,6 +1,7 @@
 extends "res://Scripts/building.gd"
 
 @onready var movementTimer = $MovementTimer;
+var resources: Resources;
 
 func _on_movement_timer_timeout() -> void:
 	var pos: Vector2i = getGridPos();
@@ -12,4 +13,13 @@ func _on_movement_timer_timeout() -> void:
 			var nextPos = track.getNextPos();
 			position = track.getNextPos();
 			moved = true;
-		
+		elif track==Globals.level.centralBuilding:
+			Globals.playerManager.addResources(resources);
+			queue_free();
+		else:
+			queue_free();
+	else:
+		queue_free();
+
+func setResources(newResources: Resources):
+	resources = newResources;

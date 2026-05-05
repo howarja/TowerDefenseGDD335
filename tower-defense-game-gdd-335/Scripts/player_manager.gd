@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 	# Spawn a building when the mouse is clicked
 	if event.is_action_pressed("Primary") && currentSelectedInstance != null && interactable:
 		var canPlace: bool = Globals.level.canPlaceAt(currentSelectedInstance.position, selectedBuilding);
-		if canPlace:
+		if canPlace && resourceCostCheck(selectedBuilding.cost):
 			addResources(selectedBuilding.cost);
 			var gridPos = Globals.level.convertToGridSpace(currentSelectedInstance.position);
 			Globals.level.setBuildingAt(gridPos, currentSelectedInstance);
@@ -43,6 +43,11 @@ func newBuilding():
 	currentSelectedInstance = selectedBuilding.buildingScene.instantiate();
 	Globals.level.add_child(currentSelectedInstance);
 	currentSelectedInstance.rotation=currentRot;
+
+func resourceCostCheck(cost: Resources):
+	var newResource: Resources = resources;
+	newResource.addResources(cost);
+	return newResource.aboveZero();
 
 func addResources(newResources: Resources):
 	resources.addResources(newResources);

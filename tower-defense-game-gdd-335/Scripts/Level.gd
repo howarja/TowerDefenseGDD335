@@ -28,7 +28,8 @@ func _ready() -> void:
 			spawnOnGrid(x, y, toSpawn);
 	
 	# replace the middle tile with the central building
-	replaceTile(Vector2i(gridX/2, gridY/2), centralBuildingPackedScene, false);
+	centralBuilding = replaceTile(Vector2i(gridX/2, gridY/2), centralBuildingPackedScene, false);
+	centralBuilding.enable();
 	enemyManger.setCentralBuilding(buildings[gridX/2][gridY/2]);
 	
 	var oreDepositPositions = [];
@@ -54,6 +55,7 @@ func replaceTile(position: Vector2i, toSpawn, groundTile: bool):
 					ground[position.x][position.y] = newTile;
 				else:
 					buildings[position.x][position.y] = newTile;
+				return newTile;
 
 func spawnOnGrid(x: int, y: int, toSpawn):
 	# Instantiate a scene at an X, Y positoins on the grid of the game
