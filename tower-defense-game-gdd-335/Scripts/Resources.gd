@@ -6,6 +6,12 @@ class_name Resources
 @export var coal: int = 0;
 @export var wood: int = 0;
 
+func setResources(newResources: Resources):
+	iron = newResources.iron;
+	gold = newResources.gold;
+	coal = newResources.coal;
+	wood = newResources.wood;
+
 func addResources(cost: Resources):
 	iron += cost.iron;
 	gold += cost.gold;
@@ -13,7 +19,7 @@ func addResources(cost: Resources):
 	wood += cost.wood;
 	
 func aboveZero():
-	if iron>0&&gold>0&&coal>0&&wood>0:
+	if iron>=0&&gold>=0&&coal>=0&&wood>=0:
 		return true;
 	else:
 		return false;

@@ -9,6 +9,7 @@ radius = 500
 projectileSpeed = 5.0
 projectileDamage = 5.0
 shootDelay = 1.0
+maxHealth = 30.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1097807904]
 modulate = Color(3.7541986e-06, 0.55838084, 0.73860437, 1)

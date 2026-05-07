@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://btblp2jt54mrq"]
+
+[ext_resource type="PackedScene" uid="uid://dx6o8ucbb4sac" path="res://Scenes/Towers/BasicGathererBuilding.tscn" id="1_vp0x0"]
+[ext_resource type="Script" uid="uid://dpdumby43vmb1" path="res://Scripts/Resources.gd" id="2_0ky1v"]
+[ext_resource type="Script" uid="uid://d08b2jyucj67r" path="res://Scripts/buildingData.gd" id="3_5n2ve"]
+
+[sub_resource type="Resource" id="Resource_m3ujj"]
+script = ExtResource("2_0ky1v")
+iron = -25
+coal = -40
+wood = -10
+metadata/_custom_type_script = "uid://dpdumby43vmb1"
+
+[resource]
+script = ExtResource("3_5n2ve")
+buildingScene = ExtResource("1_vp0x0")
+name = "Basic Gatherer"
+description = "Gain wood, coal and iron. Can only be placed on Ore Deposits"
+cost = SubResource("Resource_m3ujj")
+requiredTileGroup = "OreDeposits"
+metadata/_custom_type_script = "uid://d08b2jyucj67r"

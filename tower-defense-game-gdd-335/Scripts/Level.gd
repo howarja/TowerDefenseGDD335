@@ -25,7 +25,10 @@ func _ready() -> void:
 		trains.append([]);
 		for y in range(gridY):
 			var toSpawn = tile;
-			spawnOnGrid(x, y, toSpawn);
+			var newTile = spawnOnGrid(x, y, toSpawn);
+			buildings[x].append(null);
+			trains[x].append(null);
+			ground[x].append(newTile);
 	
 	# replace the middle tile with the central building
 	centralBuilding = replaceTile(Vector2i(gridX/2, gridY/2), centralBuildingPackedScene, false);
@@ -57,27 +60,30 @@ func replaceTile(position: Vector2i, toSpawn, groundTile: bool):
 					buildings[position.x][position.y] = newTile;
 				return newTile;
 
+func growLevel(amount: int):
+	var newBuildings = [];
+	var newGround = [];
+	var newTrainTracks = [];
+	gridX+=amount;
+	gridY+=amount;
+	
+	for x in range(gridX):
+		newBuildings.append([]);
+		newGround.append([]);
+		newTrainTracks.append([]);
+		for y in range(gridY):
+			if x < amount or y < amount:
+				var toSpawn = tile;
+				spawnOnGrid(x, y, toSpawn);
+				
+
 func spawnOnGrid(x: int, y: int, toSpawn):
 	# Instantiate a scene at an X, Y positoins on the grid of the game
 	var newTile = toSpawn.instantiate();
 	add_child(newTile);
-	buildings[x].append(null);
-	trains[x].append(null);
-	ground[x].append(newTile);
 	
 	newTile.position = Vector2(x*tileSize, y*tileSize);
 	return newTile;
-
-#func placeBuilding(building: BuildingData):
-	#var canPlace: bool = true;
-	#if building.requiredTileGroup != "":
-		#canPlace = false;
-		#if getGroundGroup(get_global_mouse_position(), building.requiredTileGroup):
-			#canPlace = true;
-	#if canPlace:
-		#var mousePos = convertToGridSpace(get_global_mouse_position());
-		#replaceTile(mousePos, building.buildingScene, false);
-	#return canPlace;
 	
 func canPlaceAt(pos: Vector2,building: BuildingData):
 	var gridPos = convertToGridSpace(pos);
@@ -93,8 +99,8 @@ func canPlaceAt(pos: Vector2,building: BuildingData):
 		canPlace = false;
 		if getGroundGroup(get_global_mouse_position(), building.requiredTileGroup): 
 			canPlace = true;
-
-	return canPlace; 
+	
+	return canPlace;
 
 func convertToGridSpace(pos: Vector2i):
 	return (pos+Vector2i.ONE*tileSize/2)/tileSize;

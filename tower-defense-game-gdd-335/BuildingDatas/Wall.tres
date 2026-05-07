@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://ci78atagsl0wm"]
 
-[ext_resource type="PackedScene" uid="uid://cy8l8ds31b7kp" path="res://Scenes/Towers/emptyBuilding.tscn" id="1_m3ujj"]
+[ext_resource type="PackedScene" uid="uid://27xlpklu34iy" path="res://Scenes/Towers/wall.tscn" id="1_m3ujj"]
 [ext_resource type="Script" uid="uid://dpdumby43vmb1" path="res://Scripts/Resources.gd" id="2_gi7oa"]
 [ext_resource type="Script" uid="uid://d08b2jyucj67r" path="res://Scripts/buildingData.gd" id="3_crvmi"]
 

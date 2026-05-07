@@ -2,7 +2,7 @@ extends Node2D
 
 var active: bool = false;
 
-var maxHealth: float = 100;
+@export var maxHealth: float = 100;
 var currentHealth: float = 100;
 @onready var healthBar = $HealthBar;
 @onready var collision = $CollisionShape2D;
@@ -11,6 +11,7 @@ var dir: Vector2i = Vector2.UP;
 
 func _ready() -> void:
 	$CollisionShape2D.disabled = true;
+	currentHealth = maxHealth;
 
 func damage(amount: float):
 	# lower the health of this tower, queueFree if tower has no health

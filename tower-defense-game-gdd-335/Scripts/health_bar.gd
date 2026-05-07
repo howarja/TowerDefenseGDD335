@@ -4,12 +4,14 @@ extends Sprite2D
 @onready var background = $".";
 @onready var fill = $Pivot/Fill;
 @onready var visiblityTimer = $VisiblityTimer;
+var yOffset: int = 80;
 var maxScaleX: float;
 
 var isVisible: bool = false;
 
 func _ready() -> void:
 	maxScaleX = pivot.scale.x;
+	position = get_parent().position - Vector2.UP*yOffset;
 	setVisiblity(false);
 
 func setPercent(percent: float):

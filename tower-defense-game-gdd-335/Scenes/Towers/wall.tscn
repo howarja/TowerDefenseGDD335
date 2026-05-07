@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://27xlpklu34iy"]
+
+[ext_resource type="PackedScene" uid="uid://cy8l8ds31b7kp" path="res://Scenes/Towers/emptyBuilding.tscn" id="1_ghk2d"]
+
+[node name="EmptyTower" unique_id=1694176448 instance=ExtResource("1_ghk2d")]
+maxHealth = 300.0

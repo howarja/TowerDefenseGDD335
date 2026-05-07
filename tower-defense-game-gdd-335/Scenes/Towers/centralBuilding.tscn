@@ -16,6 +16,7 @@ script = ExtResource("2_a66r1")
 resourceGain = SubResource("Resource_q4dai")
 gainTime = 3.0
 requiresTrain = false
+maxHealth = 1000.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1097807904]
 modulate = Color(1, 1, 0, 1)

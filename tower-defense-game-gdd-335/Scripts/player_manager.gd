@@ -45,7 +45,8 @@ func newBuilding():
 	currentSelectedInstance.rotation=currentRot;
 
 func resourceCostCheck(cost: Resources):
-	var newResource: Resources = resources;
+	var newResource: Resources = Resources.new();
+	newResource.setResources(resources);
 	newResource.addResources(cost);
 	return newResource.aboveZero();
 
