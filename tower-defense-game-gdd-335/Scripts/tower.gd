@@ -5,6 +5,7 @@ extends "res://Scripts/building.gd"
 @export var projectileDamage: float = 5;
 
 @onready var projectile = preload("res://Scenes/projectile.tscn");
+@onready var turret = $Sprite2D/Turret;
 
 @export var shootDelay: float = 1;
 var currentShootDelay: float = 1;
@@ -12,18 +13,20 @@ var currentShootDelay: float = 1;
 func _process(delta: float) -> void:
 	if !active:
 		return;
-	if currentShootDelay <= 0:
-		var enemies = get_tree().get_nodes_in_group("Enemies");
-		var bestDist = radius;
-		var targetIndex = -1;
-		for i in enemies.size():
-			if position.distance_to(enemies[i].position) < bestDist:
-				targetIndex = i;
-		if targetIndex >= 0:
+
+	var enemies = get_tree().get_nodes_in_group("Enemies");
+	var bestDist = radius;
+	var targetIndex = -1;
+	for i in enemies.size():
+		if position.distance_to(enemies[i].position) < bestDist:
+			targetIndex = i;
+	if targetIndex >= 0:
+		turret.look_at(enemies[targetIndex].position)
+		if currentShootDelay <= 0:
 			shoot(enemies[targetIndex].position - position);
 			currentShootDelay = shootDelay;
-	else:
-		currentShootDelay -= delta;
+		else:
+			currentShootDelay -= delta;
 
 func shoot(dir: Vector2):
 	var newBullet = projectile.instantiate();

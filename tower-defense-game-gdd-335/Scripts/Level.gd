@@ -2,13 +2,14 @@ extends Node2D
 
 @export var gridX: int = 30;
 @export var gridY: int = 30;
+var offset: int = 0;
 
 var buildings = [];
 var ground = []
 var trains = [];
 
 @export var tileSize = 97;
-@export var oreDepositCount: int = 8;
+@export var oreDepositCount: int = 18;
 @onready var tile = preload("res://Scenes/Towers/tile.tscn");
 @onready var oreDeposit = preload("res://Scenes/Towers/oreDeposit.tscn");
 @onready var centralBuildingPackedScene = preload("res://Scenes/Towers/centralBuilding.tscn");
@@ -39,10 +40,11 @@ func _ready() -> void:
 	for i in oreDepositCount:
 		var newPos = Vector2i(randf_range(0,gridX), randf_range(0,gridY));
 		replaceTile(newPos, oreDeposit, true);
+		
+	growLevel(20);
 
 func getGroundGroup(pos: Vector2, groupName: String):
-	var gridPos: Vector2i = convertToGridSpace(pos);
-	var groundTile = getGroundTileAt(gridPos)
+	var groundTile = getGroundTileAt(pos)
 	if groundTile != null:
 		return groundTile.is_in_group(groupName);
 	else:
@@ -54,28 +56,62 @@ func replaceTile(position: Vector2i, toSpawn, groundTile: bool):
 		if position.y < gridY && position.y >= 0:
 			if buildings[position.x][position.y] == null:
 				var newTile = spawnOnGrid(position.x, position.y, toSpawn);
+				var prevTile = null;
 				if groundTile:
+					prevTile = ground[position.x][position.y];
 					ground[position.x][position.y] = newTile;
 				else:
+					prevTile = buildings[position.x][position.y];
 					buildings[position.x][position.y] = newTile;
+				
+				if prevTile!=null:
+					prevTile.queue_free();
 				return newTile;
 
 func growLevel(amount: int):
+	# firstly make sure amount is an even number
+	if amount%2!=0:
+		amount += 1;
+	
 	var newBuildings = [];
 	var newGround = [];
 	var newTrainTracks = [];
-	gridX+=amount;
-	gridY+=amount;
-	
-	for x in range(gridX):
+
+	var x: int = 0;
+	var y: int = 0;
+	var newOffset: int = offset - amount/2;
+	#print("Total increase: "+str(gridX) +" to " + str(gridX+amount));
+	#print(str(x) + " to " + str(gridX+amount) + " : " + str(gridX+amount-1+newOffset) + " to " + str(gridX));
+	while x < gridX+amount+abs(offset):
 		newBuildings.append([]);
 		newGround.append([]);
 		newTrainTracks.append([]);
-		for y in range(gridY):
-			if x < amount or y < amount:
+		var spawnX = x+newOffset;
+		y = 0;
+		while y < gridY+amount+abs(offset):
+			var spawnY = y+newOffset;
+			if spawnX < offset or spawnY < offset or spawnX >= gridX or spawnY >= gridY:
 				var toSpawn = tile;
-				spawnOnGrid(x, y, toSpawn);
-				
+				if randf()>0.95:
+					toSpawn = oreDeposit;
+				var newTile = spawnOnGrid(spawnX, spawnY, toSpawn);
+
+				newBuildings[x].append(null);
+				newGround[x].append(newTile);
+				newTrainTracks[x].append(null); 
+			else:
+				newBuildings[x].append(getBuildingAt(Vector2i(spawnX,spawnY)));
+				newGround[x].append(getGroundTileAt(Vector2i(spawnX,spawnY)));
+				newTrainTracks[x].append(getTrainAt(Vector2i(spawnX,spawnY)));
+			y+=1;
+		x+=1;
+	
+	offset = newOffset;
+	gridX+=amount/2;
+	gridY+=amount/2;
+	buildings = newBuildings;
+	ground = newGround;
+	trains = newTrainTracks;
 
 func spawnOnGrid(x: int, y: int, toSpawn):
 	# Instantiate a scene at an X, Y positoins on the grid of the game
@@ -88,49 +124,67 @@ func spawnOnGrid(x: int, y: int, toSpawn):
 func canPlaceAt(pos: Vector2,building: BuildingData):
 	var gridPos = convertToGridSpace(pos);
 	var canPlace: bool = true;
-	
-	if gridPos.x>=gridX or gridPos.x<=0:
-		return false;
-	elif gridPos.y>=gridY or gridPos.y<=0:
+
+	if !withinLevel(gridPos):
+		print("Outside level bounds");
 		return false;
 	elif getBuildingAt(gridPos)!=null:
+		#print("Existing building");
 		canPlace = false;
 	elif building.requiredTileGroup != "":
 		canPlace = false;
-		if getGroundGroup(get_global_mouse_position(), building.requiredTileGroup): 
+		if getGroundGroup(gridPos, building.requiredTileGroup): 
 			canPlace = true;
+		else:
+			print("Incorrect ground tile");
 	
 	return canPlace;
 
 func convertToGridSpace(pos: Vector2i):
-	return (pos+Vector2i.ONE*tileSize/2)/tileSize;
-
+	var posOffset = Vector2i.ONE;
+	if pos.x<0:
+		posOffset.x = -1;
+	if pos.y<0:
+		posOffset.y = -1;
+	posOffset *= tileSize/2;
+	return (pos+posOffset)/tileSize;
+	
 func convertToWorldSpace(pos: Vector2i):
 	return Vector2(pos.x, pos.y)*tileSize;
 
 func getBuildingAt(pos: Vector2i):
-	if pos.x>=buildings.size() or pos.x<0:
-		return null;
-	if pos.y>=buildings[pos.x].size() or pos.y<0:
+	pos = applyOffset(pos);
+	if(!withinLevel(pos)):
 		return null;
 	return buildings[pos.x][pos.y];
 
 func getGroundTileAt(pos: Vector2i):
-	if pos.x>=ground.size() or pos.x<0:
-		return null;
-	if pos.y>=ground[pos.x].size() or pos.y<0:
+	pos = applyOffset(pos);
+	if(!withinLevel(pos)):
 		return null;
 	return ground[pos.x][pos.y];
-	
+
 func getTrainAt(pos: Vector2i):
-	if pos.x>=trains.size() or pos.x<0:
-		return null;
-	if pos.y>=trains[pos.x].size() or pos.y<0:
+	pos = applyOffset(pos);
+	if(!withinLevel(pos)):
 		return null;
 	return trains[pos.x][pos.y];
 
+func withinLevel(pos: Vector2i):
+	pos = applyOffset(pos);
+	if pos.x>=ground.size() or pos.x<offset:
+		return false;
+	if pos.y>=ground[pos.x].size() or pos.y<offset:
+		return false;
+	return true;
+	
+func applyOffset(pos: Vector2i):
+	return pos-Vector2i.ONE*offset;
+
 func setBuildingAt(pos: Vector2i, building):
+	pos = applyOffset(pos);
 	buildings[pos.x][pos.y] = building;
 
 func setTrainAt(pos: Vector2i, train):
+	pos = applyOffset(pos);
 	trains[pos.x][pos.y] = train;

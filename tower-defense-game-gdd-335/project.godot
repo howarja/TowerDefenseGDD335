@@ -18,6 +18,11 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 Globals="*uid://b560ld7udebt7"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [dotnet]
 
 project/assembly_name="TowerDefenseGameGDD335"
@@ -59,5 +64,6 @@ Rotate={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 environment/defaults/default_clear_color=Color(0.5464321, 0.67684907, 7.70092e-07, 1)

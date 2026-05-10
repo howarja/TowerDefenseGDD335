@@ -19,8 +19,11 @@ func spawnTrain():
 	if requiresTrain:
 		var surroundings = getSurroundingTiles();
 		for i in surroundings.size():
+			print("surroundings exist");
 			if surroundings[i]!=null:
+				print("surroundings not null");
 				if surroundings[i].is_in_group("TrainTracks"):
+					print("found track");
 					var trainTrack = surroundings[i];
 					var newTrain = train.instantiate();
 					newTrain.position = trainTrack.position;

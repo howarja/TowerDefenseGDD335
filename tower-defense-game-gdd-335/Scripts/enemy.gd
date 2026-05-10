@@ -11,6 +11,9 @@ var currentHealth: float = 100;
 
 var target;
 
+func _ready() -> void:
+	currentHealth = maxHealth;
+
 func _physics_process(delta: float) -> void:
 	# move toward the target
 	var vel = Vector2.ZERO;

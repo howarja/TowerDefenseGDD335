@@ -12,7 +12,8 @@ script = ExtResource("1_52fb6")
 tileSize = 100
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1129812152]
-zoom = Vector2(0.22, 0.22)
+position = Vector2(1340, 1015)
+zoom = Vector2(0.1, 0.1)
 script = ExtResource("2_6l7je")
 
 [node name="EnemyManager" type="Node2D" parent="." unique_id=557131222]
@@ -20,6 +21,8 @@ script = ExtResource("3_jv6wh")
 
 [node name="PlayerManager" type="Node2D" parent="." unique_id=1572353153]
 script = ExtResource("4_iacmt")
+disabledCol = Color(1, 0, 0, 0.50980395)
+enabledCol = Color(1, 1, 1, 0.50980395)
 
 [node name="UI" parent="." unique_id=1517868707 instance=ExtResource("5_6ev3c")]
 script = ExtResource("6_6ev3c")

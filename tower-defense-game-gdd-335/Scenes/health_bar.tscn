@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://fiykttsjdmxa"]
 
-[ext_resource type="Texture2D" uid="uid://blth6nj4lte07" path="res://Sprites/background.png" id="1_m34ix"]
+[ext_resource type="Texture2D" uid="uid://blth6nj4lte07" path="res://old sprites/background.png" id="1_m34ix"]
 [ext_resource type="Script" uid="uid://bukkmtbjr44sc" path="res://Scripts/health_bar.gd" id="2_qay8w"]
 
 [node name="HealthBar" type="Sprite2D" unique_id=784601734]
+z_index = 10
 scale = Vector2(1.755, 0.205)
 texture = ExtResource("1_m34ix")
 script = ExtResource("2_qay8w")

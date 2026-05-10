@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://bvsh8aadjfw3h"]
 
-[ext_resource type="Texture2D" uid="uid://1jv15rvtkqq8" path="res://Sprites/Tile.png" id="1_f8u80"]
+[ext_resource type="Texture2D" uid="uid://cupfthckg2o31" path="res://Sprites/Tile (2).png" id="2_brjrl"]
 
 [node name="Tile" type="Node2D" unique_id=995732225]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097807904]
 modulate = Color(1, 1, 1, 0.39607844)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("1_f8u80")
+z_index = -10
+scale = Vector2(5, 5)
+texture = ExtResource("2_brjrl")

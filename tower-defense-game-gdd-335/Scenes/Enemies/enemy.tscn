@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bb4jdhilld0gn"]
 
 [ext_resource type="Script" uid="uid://7vndgduwf75p" path="res://Scripts/enemy.gd" id="1_jcvw6"]
-[ext_resource type="Texture2D" uid="uid://blth6nj4lte07" path="res://Sprites/background.png" id="1_jjtjp"]
+[ext_resource type="Texture2D" uid="uid://4nh4gj4ug8u6" path="res://Sprites/SlimeEnemy.png" id="2_x1rqp"]
 [ext_resource type="PackedScene" uid="uid://fiykttsjdmxa" path="res://Scenes/health_bar.tscn" id="3_x1rqp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcvw6"]
@@ -15,8 +15,8 @@ speed = 200.0
 maxHealth = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097807904]
-modulate = Color(0.7254902, 0, 0, 1)
-texture = ExtResource("1_jjtjp")
+scale = Vector2(5, 5)
+texture = ExtResource("2_x1rqp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=527616215]
 shape = SubResource("RectangleShape2D_jcvw6")

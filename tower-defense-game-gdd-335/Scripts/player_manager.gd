@@ -9,6 +9,9 @@ var selectedBuilding: BuildingData;
 var currentSelectedInstance;
 var currentRot = 0;
 
+@export var disabledCol: Color;
+@export var enabledCol: Color;
+
 func _ready() -> void:
 	Globals.playerManager = self;
 	ui.updateResourceText(resources);
@@ -21,12 +24,16 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("Rotate"):
 			currentRot+=deg_to_rad(90);
 			currentSelectedInstance.rotation=currentRot;
-
-func _input(event: InputEvent) -> void:
+	
 	# Spawn a building when the mouse is clicked
-	if event.is_action_pressed("Primary") && currentSelectedInstance != null && interactable:
-		var canPlace: bool = Globals.level.canPlaceAt(currentSelectedInstance.position, selectedBuilding);
-		if canPlace && resourceCostCheck(selectedBuilding.cost):
+	if currentSelectedInstance!=null:
+		var canPlace: bool = Globals.level.canPlaceAt(currentSelectedInstance.position, selectedBuilding) && resourceCostCheck(selectedBuilding.cost);
+		if canPlace:
+			currentSelectedInstance.setColor(enabledCol);
+		else:
+			currentSelectedInstance.setColor(disabledCol);
+		
+		if Input.is_action_pressed("Primary") && interactable && canPlace:
 			addResources(selectedBuilding.cost);
 			var gridPos = Globals.level.convertToGridSpace(currentSelectedInstance.position);
 			Globals.level.setBuildingAt(gridPos, currentSelectedInstance);

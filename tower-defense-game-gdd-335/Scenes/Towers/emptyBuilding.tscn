@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cy8l8ds31b7kp"]
 
 [ext_resource type="Script" uid="uid://cttq8h8wf2nj8" path="res://Scripts/building.gd" id="1_imbhk"]
-[ext_resource type="Texture2D" uid="uid://blth6nj4lte07" path="res://Sprites/background.png" id="1_iup43"]
+[ext_resource type="Texture2D" uid="uid://blth6nj4lte07" path="res://old sprites/background.png" id="1_iup43"]
 [ext_resource type="PackedScene" uid="uid://fiykttsjdmxa" path="res://Scenes/health_bar.tscn" id="3_v06rl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imbhk"]
@@ -13,6 +13,7 @@ collision_mask = 7
 script = ExtResource("1_imbhk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097807904]
+scale = Vector2(5, 5)
 texture = ExtResource("1_iup43")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2130231254]

@@ -6,11 +6,15 @@ var active: bool = false;
 var currentHealth: float = 100;
 @onready var healthBar = $HealthBar;
 @onready var collision = $CollisionShape2D;
+@onready var sprite: Node2D = $Sprite2D;
 
 var dir: Vector2i = Vector2.UP;
+var spriteScale
 
 func _ready() -> void:
 	$CollisionShape2D.disabled = true;
+	spriteScale = sprite.scale;
+	sprite.scale /= 1.5;
 	currentHealth = maxHealth;
 
 func damage(amount: float):
@@ -42,3 +46,10 @@ func enable():
 	var newDir = Vector2(cos(rot), sin(rot));
 	dir = newDir.normalized();
 	$CollisionShape2D.disabled = false;
+	setColor(Color.WHITE);
+	var tween = get_tree().create_tween();
+	print( spriteScale);
+	tween.tween_property(sprite, "scale", spriteScale, 0.1).set_trans(Tween.TRANS_BOUNCE)
+	
+func setColor(col: Color):
+	sprite.self_modulate = col;

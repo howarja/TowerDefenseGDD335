@@ -11,7 +11,9 @@ func _on_movement_timer_timeout() -> void:
 	if track!=null:
 		if track.is_in_group("TrainTracks"):
 			var nextPos = track.getNextPos();
-			position = track.getNextPos();
+			var tween = get_tree().create_tween();
+			tween.tween_property(self, "position", track.getNextPos(), movementTimer.wait_time*0.6)
+			#position = track.getNextPos();
 			moved = true;
 		elif track==Globals.level.centralBuilding:
 			Globals.playerManager.addResources(resources);
