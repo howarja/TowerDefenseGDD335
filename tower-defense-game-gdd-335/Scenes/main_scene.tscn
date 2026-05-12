@@ -9,6 +9,8 @@
 
 [node name="MainScene" type="Node2D" unique_id=1004797404]
 script = ExtResource("1_52fb6")
+gridX = 20
+gridY = 20
 tileSize = 100
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1129812152]

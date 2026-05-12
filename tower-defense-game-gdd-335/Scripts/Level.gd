@@ -42,9 +42,10 @@ func _ready() -> void:
 		replaceTile(newPos, oreDeposit, true);
 		
 	growLevel(20);
+	#growLevel(2);
 
 func getGroundGroup(pos: Vector2, groupName: String):
-	var groundTile = getGroundTileAt(pos)
+	var groundTile = getGroundTileAt(pos, false)
 	if groundTile != null:
 		return groundTile.is_in_group(groupName);
 	else:
@@ -95,14 +96,16 @@ func growLevel(amount: int):
 				if randf()>0.95:
 					toSpawn = oreDeposit;
 				var newTile = spawnOnGrid(spawnX, spawnY, toSpawn);
-
+				
 				newBuildings[x].append(null);
 				newGround[x].append(newTile);
 				newTrainTracks[x].append(null); 
 			else:
-				newBuildings[x].append(getBuildingAt(Vector2i(spawnX,spawnY)));
-				newGround[x].append(getGroundTileAt(Vector2i(spawnX,spawnY)));
-				newTrainTracks[x].append(getTrainAt(Vector2i(spawnX,spawnY)));
+				newBuildings[x].append(getBuildingAt(Vector2i(spawnX,spawnY),false));
+				newGround[x].append(getGroundTileAt(Vector2i(spawnX,spawnY),false));
+				if getGroundGroup(Vector2i(spawnX,spawnY),"OreDeposits"):
+					print("Found ore: " + str(x) + ", " + str(y));
+				newTrainTracks[x].append(getTrainAt(Vector2i(spawnY,spawnY),false));
 			y+=1;
 		x+=1;
 	
@@ -126,17 +129,17 @@ func canPlaceAt(pos: Vector2,building: BuildingData):
 	var canPlace: bool = true;
 
 	if !withinLevel(gridPos):
-		print("Outside level bounds");
+		#print("Outside level bounds");
 		return false;
-	elif getBuildingAt(gridPos)!=null:
+	elif getBuildingAt(gridPos,false)!=null:
 		#print("Existing building");
 		canPlace = false;
 	elif building.requiredTileGroup != "":
 		canPlace = false;
 		if getGroundGroup(gridPos, building.requiredTileGroup): 
 			canPlace = true;
-		else:
-			print("Incorrect ground tile");
+		#else:
+			#print("Incorrect ground tile");
 	
 	return canPlace;
 
@@ -152,29 +155,34 @@ func convertToGridSpace(pos: Vector2i):
 func convertToWorldSpace(pos: Vector2i):
 	return Vector2(pos.x, pos.y)*tileSize;
 
-func getBuildingAt(pos: Vector2i):
-	pos = applyOffset(pos);
+func getBuildingAt(pos: Vector2i, applyOffset: bool):
+	if applyOffset:
+		pos = applyOffset(pos);
 	if(!withinLevel(pos)):
 		return null;
 	return buildings[pos.x][pos.y];
 
-func getGroundTileAt(pos: Vector2i):
-	pos = applyOffset(pos);
+func getGroundTileAt(pos: Vector2i, applyOffset: bool):
+	if applyOffset:
+		pos = applyOffset(pos);
+	print(pos);
 	if(!withinLevel(pos)):
+		print("Outside level");
 		return null;
 	return ground[pos.x][pos.y];
 
-func getTrainAt(pos: Vector2i):
-	pos = applyOffset(pos);
+func getTrainAt(pos: Vector2i, applyOffset: bool):
+	if applyOffset:
+		pos = applyOffset(pos);
 	if(!withinLevel(pos)):
 		return null;
 	return trains[pos.x][pos.y];
 
 func withinLevel(pos: Vector2i):
-	pos = applyOffset(pos);
-	if pos.x>=ground.size() or pos.x<offset:
+	#pos = applyOffset(pos);
+	if pos.x>=ground.size() or pos.x<0:
 		return false;
-	if pos.y>=ground[pos.x].size() or pos.y<offset:
+	if pos.y>=ground[pos.x].size() or pos.y<0:
 		return false;
 	return true;
 	

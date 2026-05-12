@@ -39,7 +39,7 @@ func getSurroundingTiles():
 func getGroundTile():
 	var selfGridPos: Vector2i = getGridPos();
 	return Globals.level.getBuildingAt(selfGridPos);
-	
+
 func enable():
 	active = true;
 	var rot = rotation - deg_to_rad(90);
@@ -48,8 +48,7 @@ func enable():
 	$CollisionShape2D.disabled = false;
 	setColor(Color.WHITE);
 	var tween = get_tree().create_tween();
-	print( spriteScale);
 	tween.tween_property(sprite, "scale", spriteScale, 0.1).set_trans(Tween.TRANS_BOUNCE)
-	
+
 func setColor(col: Color):
 	sprite.self_modulate = col;

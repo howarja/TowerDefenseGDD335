@@ -24,6 +24,9 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("Rotate"):
 			currentRot+=deg_to_rad(90);
 			currentSelectedInstance.rotation=currentRot;
+		elif Input.is_action_just_pressed("Deselect"):
+			currentSelectedInstance.queue_free();
+			currentSelectedInstance = null;
 	
 	# Spawn a building when the mouse is clicked
 	if currentSelectedInstance!=null:
@@ -39,12 +42,20 @@ func _process(delta: float) -> void:
 			Globals.level.setBuildingAt(gridPos, currentSelectedInstance);
 			currentSelectedInstance.enable();
 			newBuilding();
-
+	else:
+		if Input.is_action_pressed("Primary"):
+			var gridPos = Globals.level.convertToGridSpace(get_global_mouse_position());
+			var building = Globals.level.getBuildingAt(gridPos, true);
+			selectBuilding(building);
+		
 func setSelectedBuilding(newSelection: BuildingData):
 	selectedBuilding = newSelection;
 	if currentSelectedInstance!=null:
 		currentSelectedInstance.queue_free();
 	newBuilding();
+	
+func selectBuilding(building):
+	Globals.placedBuidlingInfo.setTarget(building);
 	
 func newBuilding():
 	currentSelectedInstance = selectedBuilding.buildingScene.instantiate();
