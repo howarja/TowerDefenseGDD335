@@ -45,8 +45,9 @@ func _ready() -> void:
 	#growLevel(2);
 
 func getGroundGroup(pos: Vector2, groupName: String):
-	var groundTile = getGroundTileAt(pos, false)
+	var groundTile = getGroundTileAt(pos, true)
 	if groundTile != null:
+		print("Found tile");
 		return groundTile.is_in_group(groupName);
 	else:
 		return false;
@@ -163,9 +164,12 @@ func getBuildingAt(pos: Vector2i, applyOffset: bool):
 	return buildings[pos.x][pos.y];
 
 func getGroundTileAt(pos: Vector2i, applyOffset: bool):
+	print("Original pos");
+	print(pos);
 	if applyOffset:
 		pos = applyOffset(pos);
-	print(pos);
+		print("Offsetd pos");
+		print(pos);
 	if(!withinLevel(pos)):
 		print("Outside level");
 		return null;
@@ -180,12 +184,12 @@ func getTrainAt(pos: Vector2i, applyOffset: bool):
 
 func withinLevel(pos: Vector2i):
 	#pos = applyOffset(pos);
-	if pos.x>=ground.size() or pos.x<0:
+	if pos.x>=ground.size() or pos.x<=0:
 		return false;
-	if pos.y>=ground[pos.x].size() or pos.y<0:
+	if pos.y>=ground[pos.x].size() or pos.y<=0:
 		return false;
 	return true;
-	
+
 func applyOffset(pos: Vector2i):
 	return pos-Vector2i.ONE*offset;
 

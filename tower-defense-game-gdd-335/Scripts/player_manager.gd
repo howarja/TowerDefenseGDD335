@@ -47,16 +47,16 @@ func _process(delta: float) -> void:
 			var gridPos = Globals.level.convertToGridSpace(get_global_mouse_position());
 			var building = Globals.level.getBuildingAt(gridPos, true);
 			selectBuilding(building);
-		
+
 func setSelectedBuilding(newSelection: BuildingData):
 	selectedBuilding = newSelection;
 	if currentSelectedInstance!=null:
 		currentSelectedInstance.queue_free();
 	newBuilding();
-	
+
 func selectBuilding(building):
 	Globals.placedBuidlingInfo.setTarget(building);
-	
+
 func newBuilding():
 	currentSelectedInstance = selectedBuilding.buildingScene.instantiate();
 	Globals.level.add_child(currentSelectedInstance);

@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 				spawnEnemy();
 
 func spawnEnemy():
-	var newEnemy = enemy.instantiate(); 
+	var newEnemy = enemy.instantiate();
 	add_child(newEnemy);
 	
 	var newPos = centralBuilding.position+Vector2(randf()-0.5, randf()-0.5).normalized()*spawnDist;
