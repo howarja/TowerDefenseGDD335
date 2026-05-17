@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cpjiwcdkgbhef"]
+
+[ext_resource type="Script" uid="uid://7vndgduwf75p" path="res://Scripts/enemy.gd" id="1_2ixqs"]
+[ext_resource type="Texture2D" uid="uid://85dltrw20so3" path="res://Sprites/kingSlime.png" id="2_2ixqs"]
+[ext_resource type="PackedScene" uid="uid://fiykttsjdmxa" path="res://Scenes/health_bar.tscn" id="3_o8pol"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcvw6"]
+size = Vector2(152, 121)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1163011571 groups=["Enemies"]]
+scale = Vector2(12, 12)
+collision_layer = 4
+collision_mask = 14
+script = ExtResource("1_2ixqs")
+speed = 30.0
+damageDeal = 30.0
+maxHealth = 2000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097807904]
+scale = Vector2(0.417, 0.417)
+texture = ExtResource("2_2ixqs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=527616215]
+shape = SubResource("RectangleShape2D_jcvw6")
+
+[node name="HealthBar" parent="." unique_id=784601734 instance=ExtResource("3_o8pol")]
+position = Vector2(0, -100)

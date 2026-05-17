@@ -23,3 +23,21 @@ func aboveZero():
 		return true;
 	else:
 		return false;
+
+static func absResources(resources: Resources):
+	var newResource: Resources = Resources.new();
+	newResource.setResources(resources);
+	newResource.iron = abs(newResource.iron);
+	newResource.gold = abs(newResource.gold);
+	newResource.coal = abs(newResource.coal);
+	newResource.wood = abs(newResource.wood);
+	return newResource;
+
+static func divideResrouces(resources: Resources, divider: float):
+	var newResource: Resources = Resources.new();
+	newResource.setResources(resources);
+	newResource.iron /= divider;
+	newResource.gold /= divider;
+	newResource.coal /= divider;
+	newResource.wood /= divider;
+	return newResource;

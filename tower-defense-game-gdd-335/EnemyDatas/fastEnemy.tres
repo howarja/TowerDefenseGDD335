@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="enemyData" format=3 uid="uid://dlnoci7jw5nji"]
+
+[ext_resource type="PackedScene" uid="uid://bvtoesxkg6e0h" path="res://Scenes/Enemies/fastEnemy.tscn" id="1_1i7sl"]
+[ext_resource type="Script" uid="uid://buksg2ouisqh1" path="res://Scripts/enemyData.gd" id="2_k06wv"]
+
+[resource]
+script = ExtResource("2_k06wv")
+scene = ExtResource("1_1i7sl")
+chanceIncreasePerWave = 10.0
+maxChancePercent = 400.0
+metadata/_custom_type_script = "uid://buksg2ouisqh1"

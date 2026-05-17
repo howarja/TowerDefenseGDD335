@@ -16,5 +16,4 @@ buildingScene = ExtResource("1_m3ujj")
 name = "Wall"
 description = "Blocks the movement of enemies"
 cost = SubResource("Resource_m3ujj")
-requiredTileGroup = "OreDeposits"
 metadata/_custom_type_script = "uid://d08b2jyucj67r"

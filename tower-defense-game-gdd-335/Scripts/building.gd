@@ -1,6 +1,7 @@
 extends Node2D
 
 var active: bool = false;
+var sellResources: Resources;
 
 @export var maxHealth: float = 100;
 var currentHealth: float = 100;
@@ -40,7 +41,7 @@ func getGroundTile():
 	var selfGridPos: Vector2i = getGridPos();
 	return Globals.level.getBuildingAt(selfGridPos);
 
-func enable():
+func enable(value: Resources):
 	active = true;
 	var rot = rotation - deg_to_rad(90);
 	var newDir = Vector2(cos(rot), sin(rot));
@@ -49,6 +50,17 @@ func enable():
 	setColor(Color.WHITE);
 	var tween = get_tree().create_tween();
 	tween.tween_property(sprite, "scale", spriteScale, 0.1).set_trans(Tween.TRANS_BOUNCE)
-
+	
+	if value != null:
+		sellResources = Resources.absResources(value);
+		print(sellResources.wood);
+	
 func setColor(col: Color):
 	sprite.self_modulate = col;
+
+func getCanSell():
+	return sellResources!=null;
+
+func sellBuilding():
+	Globals.playerManager.addResources(sellResources);
+	queue_free();

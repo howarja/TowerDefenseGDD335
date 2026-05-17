@@ -14,6 +14,13 @@ var target;
 func _ready() -> void:
 	currentHealth = maxHealth;
 
+func addStrength(mult: float):
+	#speed+=addition;
+	damageDeal*=mult;
+	maxHealth*=mult;
+	currentHealth = maxHealth;
+	scale*=Vector2.ONE*mult;
+
 func _physics_process(delta: float) -> void:
 	# move toward the target
 	var vel = Vector2.ZERO;

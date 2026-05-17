@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="enemyData" format=3 uid="uid://bmr2p7si7tyqb"]
+
+[ext_resource type="PackedScene" uid="uid://cpjiwcdkgbhef" path="res://Scenes/Enemies/KingEnemy.tscn" id="1_pedof"]
+[ext_resource type="Script" uid="uid://buksg2ouisqh1" path="res://Scripts/enemyData.gd" id="2_pueb8"]
+
+[resource]
+script = ExtResource("2_pueb8")
+scene = ExtResource("1_pedof")
+minWaves = 10
+chanceIncreasePerWave = 2.0
+maxChancePercent = 2.0
+metadata/_custom_type_script = "uid://buksg2ouisqh1"

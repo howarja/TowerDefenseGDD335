@@ -15,12 +15,14 @@ offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(87.455, 211.755)
+mouse_filter = 2
 script = ExtResource("1_lu47j")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1339525593]
 layout_mode = 0
 offset_right = 192.0
 offset_bottom = 204.0
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 14
 text = "Tower:
 Shoots at nearby enemies

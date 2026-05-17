@@ -36,16 +36,16 @@ func _process(delta: float) -> void:
 		else:
 			currentSelectedInstance.setColor(disabledCol);
 		
-		if Input.is_action_pressed("Primary") && interactable && canPlace:
+		if Input.is_action_pressed("Primary") && canPlace && interactable:
 			addResources(selectedBuilding.cost);
 			var gridPos = Globals.level.convertToGridSpace(currentSelectedInstance.position);
 			Globals.level.setBuildingAt(gridPos, currentSelectedInstance);
-			currentSelectedInstance.enable();
+			currentSelectedInstance.enable(Resources.divideResrouces(selectedBuilding.cost, 2));
 			newBuilding();
-	else:
-		if Input.is_action_pressed("Primary"):
+	elif interactable:
+		if Input.is_action_just_pressed("Primary"):
 			var gridPos = Globals.level.convertToGridSpace(get_global_mouse_position());
-			var building = Globals.level.getBuildingAt(gridPos, true);
+			var building = Globals.level.getBuildingAt(gridPos);
 			selectBuilding(building);
 
 func setSelectedBuilding(newSelection: BuildingData):
@@ -61,6 +61,7 @@ func newBuilding():
 	currentSelectedInstance = selectedBuilding.buildingScene.instantiate();
 	Globals.level.add_child(currentSelectedInstance);
 	currentSelectedInstance.rotation=currentRot;
+	selectBuilding(null);
 
 func resourceCostCheck(cost: Resources):
 	var newResource: Resources = Resources.new();

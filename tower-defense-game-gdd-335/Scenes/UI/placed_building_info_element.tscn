@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dh7m5vqwvkqd1"]
+
+[ext_resource type="Script" uid="uid://cnrx6yc5ldnc5" path="res://Sprites/placed_building_info_element.gd" id="1_2qc6i"]
+
+[node name="PlacedBuildingInfoElement" type="Control" unique_id=958816191]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 220.0
+offset_top = 208.0
+offset_right = 296.0
+offset_bottom = 236.0
+script = ExtResource("1_2qc6i")
+
+[node name="Panel" type="Panel" parent="." unique_id=413346788]
+layout_mode = 0
+offset_left = -58.0
+offset_top = -21.97
+offset_right = 45.0
+offset_bottom = 18.03
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1132944485]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 107.0
+offset_bottom = 39.0
+text = "tilename"
+
+[node name="SellButton" type="Button" parent="." unique_id=2032329525]
+layout_mode = 0
+offset_left = -59.0
+offset_top = -64.0
+offset_right = 47.0
+offset_bottom = -33.0
+text = "Sell"
+
+[node name="RepairButton" type="Button" parent="." unique_id=262992743]
+layout_mode = 0
+offset_left = -59.0
+offset_top = -109.0
+offset_right = 47.0
+offset_bottom = -78.0
+text = "Repair"
+
+[connection signal="button_down" from="SellButton" to="." method="_on_sell_button_button_down"]
+[connection signal="mouse_entered" from="SellButton" to="." method="_on_sell_button_mouse_entered"]
+[connection signal="mouse_exited" from="SellButton" to="." method="_on_sell_button_mouse_exited"]

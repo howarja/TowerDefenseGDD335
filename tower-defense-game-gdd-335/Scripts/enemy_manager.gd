@@ -1,17 +1,19 @@
 extends Node2D
 
-@onready var enemy = preload("res://Scenes/Enemies/enemy.tscn");
-var enemySpawnAmount: int = 2;
-var spawnsPerWave: int = 5;
-var remainingSpawns: int = 5;
-var enemySpawnCooldown: float = 3;
+@export var enemies: Array[enemyData];
+
+@export var levelIncreasePerWave: int = 30;
+@export var enemySpawnAmount: int = 2;
+@export var weightPerWave: int = 5;
+var remainingWeight: int = 5;
+@export var enemySpawnCooldown: float = 3;
 var currentSpawnCooldown: float = 3;
 
 var currentWave = 0;
-var waveCooldown: float = 35;
+@export var waveCooldown: float = 35;
 var currentWaveCooldown: float = 0;
-var waveCooldownIncrease: float = 15;
-var maxWaveCooldown: float = 60;
+@export var waveCooldownIncrease: float = 15;
+@export var maxWaveCooldown: float = 60;
 
 var spawnDist: float = 3000;
 
@@ -33,16 +35,18 @@ func _process(delta: float) -> void:
 	else:
 		currentSpawnCooldown -= delta;
 		if currentSpawnCooldown <= 0 && centralBuilding!=null:
-			remainingSpawns-=1;
-			if remainingSpawns<=0:
+			if remainingWeight<=0:
 				currentWaveCooldown = min(maxWaveCooldown ,waveCooldown+waveCooldownIncrease*currentWave);
 				if currentWave%5==0 && currentWave<=30:
-					Globals.level.growLevel(20);
+					Globals.level.growLevel(levelIncreasePerWave);
+			remainingWeight-=1;
 			for i in enemySpawnAmount*currentWave:
 				spawnEnemy();
 
 func spawnEnemy():
-	var newEnemy = enemy.instantiate();
+	
+	var chosenEnemyData = chooseEnemy();
+	var newEnemy = chosenEnemyData.scene.instantiate();
 	add_child(newEnemy);
 	
 	var newPos = centralBuilding.position+Vector2(randf()-0.5, randf()-0.5).normalized()*spawnDist;
@@ -51,6 +55,28 @@ func spawnEnemy():
 	
 	currentSpawnCooldown = enemySpawnCooldown/currentWave;
 
+func chooseEnemy():
+	# firstly loop through all avalible enemies and add up their cances
+	var cumalitave: float = 0;
+	for i in enemies.size():
+		var pastWaves = currentWave - enemies[i].minWaves;
+		if pastWaves>=0:
+			var currentChance = enemies[i].chanceIncreasePerWave*pastWaves;
+			cumalitave += currentChance;
+			
+	# choose a random number between 0 and total of all chances
+	var rand = randf()*cumalitave;
+	
+	# loop through again but stop once cumilation is greater than the random number
+	var newCumalitive: float = 0;
+	for i in enemies.size():
+		var pastWaves = currentWave - enemies[i].minWaves;
+		if pastWaves>=0:
+			var currentChance = enemies[i].chanceIncreasePerWave*pastWaves;
+			newCumalitive += currentChance;
+			if newCumalitive>=rand:
+				return enemies[i];
+
 func newWave():
 	currentWave+=1;
-	remainingSpawns = spawnsPerWave * currentWave;
+	remainingWeight = weightPerWave * currentWave;
