@@ -50,3 +50,6 @@ func damage(amount: float):
 	healthBar.setPercent(currentHealth/maxHealth);
 	if currentHealth <= 0:
 		queue_free();
+
+func getScale():
+	return $Sprite2D.scale.length()*$Sprite2D.texture.get_size().length()*scale.length();

@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 		elif Input.is_action_just_pressed("Deselect"):
 			currentSelectedInstance.queue_free();
 			currentSelectedInstance = null;
+			Globals.mouseFollower.enablePlacementInputs(false);
 	
 	# Spawn a building when the mouse is clicked
 	if currentSelectedInstance!=null:
@@ -40,7 +41,7 @@ func _process(delta: float) -> void:
 			addResources(selectedBuilding.cost);
 			var gridPos = Globals.level.convertToGridSpace(currentSelectedInstance.position);
 			Globals.level.setBuildingAt(gridPos, currentSelectedInstance);
-			currentSelectedInstance.enable(Resources.divideResrouces(selectedBuilding.cost, 2));
+			currentSelectedInstance.enable(selectedBuilding.cost, selectedBuilding.name);
 			newBuilding();
 	elif interactable:
 		if Input.is_action_just_pressed("Primary"):
@@ -62,6 +63,7 @@ func newBuilding():
 	Globals.level.add_child(currentSelectedInstance);
 	currentSelectedInstance.rotation=currentRot;
 	selectBuilding(null);
+	Globals.mouseFollower.enablePlacementInputs(true);
 
 func resourceCostCheck(cost: Resources):
 	var newResource: Resources = Resources.new();
@@ -71,6 +73,10 @@ func resourceCostCheck(cost: Resources):
 
 func addResources(newResources: Resources):
 	resources.addResources(newResources);
+	ui.updateResourceText(resources);
+
+func subtractResources(newResources: Resources):
+	resources.subtractResources(newResources);
 	ui.updateResourceText(resources);
 
 func setInteractability(newInteractable: bool):

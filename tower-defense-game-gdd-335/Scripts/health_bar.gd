@@ -11,20 +11,27 @@ var isVisible: bool = false;
 
 func _ready() -> void:
 	maxScaleX = pivot.scale.x;
-	position = get_parent().position - Vector2.UP*yOffset;
-	setVisiblity(false);
+	setVisiblity(false, true);
 
 func setPercent(percent: float):
 	pivot.scale = Vector2(maxScaleX*percent, pivot.scale.y);
 	if percent < 1:
-		setVisiblity(true);
+		setVisiblity(true, true);
 
-func setVisiblity(visiblity: bool):
+func setVisiblity(visiblity: bool, disapear: bool):
 	background.visible = visiblity;
 	fill.visible = visiblity
 	isVisible = visiblity;
-	if visiblity:
-		visiblityTimer.start();
+	if disapear:
+		if visiblity:
+			visiblityTimer.start();
+	else:
+		visiblityTimer.stop();
+	positionOnHead();
+
+func positionOnHead():
+	global_position = get_parent().global_position + Vector2.UP*yOffset;
+	global_rotation = 0;
 
 func _on_visiblity_timer_timeout() -> void:
-	setVisiblity(false);
+	setVisiblity(false, true);

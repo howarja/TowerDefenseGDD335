@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	var bestDist = radius;
 	var targetIndex = -1;
 	for i in enemies.size():
-		if position.distance_to(enemies[i].position) < bestDist:
+		if position.distance_to(enemies[i].position)-enemies[i].getScale() < bestDist:
 			targetIndex = i;
 	if targetIndex >= 0:
 		turret.look_at(enemies[targetIndex].position)

@@ -1,7 +1,8 @@
 extends Node2D
 
+var buildingName: String = "";
 var active: bool = false;
-var sellResources: Resources;
+var resourceValue: Resources;
 
 @export var maxHealth: float = 100;
 var currentHealth: float = 100;
@@ -36,13 +37,14 @@ func getSurroundingTiles():
 	tiles.append(Globals.level.getBuildingAt(selfGridPos+Vector2i.RIGHT))
 	tiles.append(Globals.level.getBuildingAt(selfGridPos+Vector2i.LEFT))
 	return tiles;
-	
+
 func getGroundTile():
 	var selfGridPos: Vector2i = getGridPos();
 	return Globals.level.getBuildingAt(selfGridPos);
 
-func enable(value: Resources):
+func enable(value: Resources, newName: String):
 	active = true;
+	buildingName = newName;
 	var rot = rotation - deg_to_rad(90);
 	var newDir = Vector2(cos(rot), sin(rot));
 	dir = newDir.normalized();
@@ -52,15 +54,29 @@ func enable(value: Resources):
 	tween.tween_property(sprite, "scale", spriteScale, 0.1).set_trans(Tween.TRANS_BOUNCE)
 	
 	if value != null:
-		sellResources = Resources.absResources(value);
-		print(sellResources.wood);
-	
+		resourceValue = Resources.absResources(value);
+
 func setColor(col: Color):
 	sprite.self_modulate = col;
 
+func select():
+	healthBar.setVisiblity(true, false);
+
+func deselect():
+	healthBar.setVisiblity(false, false);
+
 func getCanSell():
-	return sellResources!=null;
+	return resourceValue!=null;
 
 func sellBuilding():
-	Globals.playerManager.addResources(sellResources);
+	Globals.playerManager.addResources(Resources.divideResrouces(resourceValue, 2));
 	queue_free();
+
+func repair():
+	var healthPercent: float = currentHealth/maxHealth;
+	if healthPercent<=0.99:
+		var repairResources: Resources = Resources.divideResrouces(resourceValue, 1/healthPercent)
+		if Globals.playerManager.resourceCostCheck(repairResources):
+			Globals.playerManager.subtractResources(repairResources);
+			currentHealth = maxHealth;
+			healthBar.setPercent(currentHealth/maxHealth);

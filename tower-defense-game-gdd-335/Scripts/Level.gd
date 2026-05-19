@@ -39,7 +39,7 @@ func _ready() -> void:
 	
 	# replace the middle tile with the central building
 	centralBuilding = replaceTile(Vector2i(gridX/2, gridY/2), centralBuildingPackedScene, false);
-	centralBuilding.enable(null);
+	centralBuilding.enable(null, "Central building");
 	$Camera2D.position = centralBuilding.position;
 	enemyManger.setCentralBuilding(buildings[gridX/2][gridY/2]);
 	

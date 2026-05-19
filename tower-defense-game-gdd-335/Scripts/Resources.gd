@@ -18,6 +18,12 @@ func addResources(cost: Resources):
 	coal += cost.coal;
 	wood += cost.wood;
 	
+func subtractResources(cost: Resources):
+	iron -= cost.iron;
+	gold -= cost.gold;
+	coal -= cost.coal;
+	wood -= cost.wood;
+	
 func aboveZero():
 	if iron>=0&&gold>=0&&coal>=0&&wood>=0:
 		return true;

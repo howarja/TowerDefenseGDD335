@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cxnej7tppitx7"]
+
+[ext_resource type="Script" uid="uid://d1bqn4d61wdm6" path="res://Scripts/mouse_follower.gd" id="1_nr0q2"]
+
+[node name="MouseFollower" type="Control" unique_id=1833854478]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_nr0q2")
+
+[node name="PlacementInputs" type="RichTextLabel" parent="." unique_id=852706115]
+visible = false
+layout_mode = 0
+offset_left = 33.0
+offset_top = -106.0
+offset_right = 263.0
+offset_bottom = -31.0
+mouse_filter = 2
+text = "R- rotate
+LMB - place
+Middle mouse - Cancel"
