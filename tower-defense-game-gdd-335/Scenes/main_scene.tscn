@@ -27,7 +27,9 @@ script = ExtResource("2_6l7je")
 script = ExtResource("3_jv6wh")
 enemies = Array[ExtResource("4_76v2p")]([ExtResource("5_drdnd"), ExtResource("6_ioaeq"), ExtResource("7_7ewk0"), ExtResource("8_lhp3t")])
 enemySpawnAmount = 1
-weightPerWave = 3
+enemySpawnCooldown = 5.0
+waveCooldown = 40.0
+maxWaveCooldown = 75.0
 
 [node name="PlayerManager" type="Node2D" parent="." unique_id=1572353153]
 script = ExtResource("4_iacmt")

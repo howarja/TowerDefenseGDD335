@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_m3ujj"]
 script = ExtResource("2_0ky1v")
-gold = -60
+gold = -40
 metadata/_custom_type_script = "uid://dpdumby43vmb1"
 
 [resource]

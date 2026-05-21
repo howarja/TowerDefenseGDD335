@@ -23,7 +23,7 @@ func subtractResources(cost: Resources):
 	
 func aboveZero():
 	#if iron>=0&&gold>=0&&coal>=0&&wood>=0:
-	if gold > 0:
+	if gold >= 0:
 		return true;
 	else:
 		return false;

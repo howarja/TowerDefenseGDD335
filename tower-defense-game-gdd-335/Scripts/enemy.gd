@@ -51,7 +51,6 @@ func damage(amount: float):
 	healthBar.setPercent(currentHealth/maxHealth);
 	deathParticles.emitting = true;
 	if currentHealth <= 0:
-		#deathParticles.reparent(get_parent());
 		queue_free();
 
 func getScale():

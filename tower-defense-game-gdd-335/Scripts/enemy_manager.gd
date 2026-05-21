@@ -4,8 +4,8 @@ extends Node2D
 
 @export var levelIncreasePerWave: int = 30;
 @export var enemySpawnAmount: int = 2;
-@export var weightPerWave: int = 5;
-var remainingWeight: int = 5;
+@export var weightPerWave: int = 2;
+var remainingWeight: int = 2;
 @export var enemySpawnCooldown: float = 3;
 var currentSpawnCooldown: float = 3;
 
