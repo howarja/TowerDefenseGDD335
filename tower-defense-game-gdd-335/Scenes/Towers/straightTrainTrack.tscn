@@ -10,3 +10,6 @@ maxHealth = 80.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1097807904]
 texture = ExtResource("3_msjym")
+
+[node name="ArrowSprite" parent="." index="1" unique_id=2106868985]
+visible = true

@@ -18,6 +18,7 @@ var currentWaveCooldown: float = 0;
 var spawnDist: float = 3000;
 
 var centralBuilding;
+@onready var ui = $"../UI";
 
 func _ready() -> void:
 	currentWaveCooldown = waveCooldown;
@@ -30,6 +31,7 @@ func _process(delta: float) -> void:
 	# spawn a new enemy on a cooldown
 	if currentWaveCooldown>0:
 		currentWaveCooldown -= delta;
+		ui.updateWaveTimerText(currentWaveCooldown);
 		if currentWaveCooldown<=0:
 			newWave();
 	else:

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cttq8h8wf2nj8" path="res://Scripts/building.gd" id="1_imbhk"]
 [ext_resource type="Texture2D" uid="uid://blth6nj4lte07" path="res://old sprites/background.png" id="1_iup43"]
+[ext_resource type="Texture2D" uid="uid://d3d8mvjc08fci" path="res://Sprites/arrow.png" id="3_adalm"]
 [ext_resource type="PackedScene" uid="uid://fiykttsjdmxa" path="res://Scenes/health_bar.tscn" id="3_v06rl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imbhk"]
@@ -33,6 +34,13 @@ script = ExtResource("1_imbhk")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097807904]
 scale = Vector2(5, 5)
 texture = ExtResource("1_iup43")
+
+[node name="ArrowSprite" type="Sprite2D" parent="." unique_id=2106868985]
+visible = false
+modulate = Color(1, 1, 1, 0.6627451)
+position = Vector2(0, -134.99998)
+scale = Vector2(5, 5)
+texture = ExtResource("3_adalm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2130231254]
 shape = SubResource("RectangleShape2D_imbhk")

@@ -48,6 +48,7 @@ func _ready() -> void:
 	for i in totalOreDepositCount:
 		var newPos = Vector2i(randf_range(0,gridX), randf_range(0,gridY));
 		replaceTile(newPos, oreDeposit, true);
+	# generate specifc ore deposits in the intital area
 	for i in initialOreDepositCount:
 		var newPos = Vector2i(randf_range(visibleX.x,visibleX.y), randf_range(visibleY.x,visibleY.y));
 		replaceTile(newPos, oreDeposit, true);

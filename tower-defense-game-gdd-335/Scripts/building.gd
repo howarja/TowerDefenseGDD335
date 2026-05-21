@@ -18,6 +18,7 @@ func _ready() -> void:
 	spriteScale = sprite.scale;
 	sprite.scale /= 1.5;
 	currentHealth = maxHealth;
+	#$ArrowSprite.show();
 
 func damage(amount: float):
 	# lower the health of this tower, queueFree if tower has no health
@@ -49,6 +50,7 @@ func enable(value: Resources, newName: String):
 	var newDir = Vector2(cos(rot), sin(rot));
 	dir = newDir.normalized();
 	$CollisionShape2D.disabled = false;
+	$ArrowSprite.hide();
 	setColor(Color.WHITE);
 	var tween = get_tree().create_tween();
 	tween.tween_property(sprite, "scale", spriteScale, 0.1).set_trans(Tween.TRANS_BOUNCE)
