@@ -44,7 +44,6 @@ func _process(delta: float) -> void:
 				spawnEnemy();
 
 func spawnEnemy():
-	
 	var chosenEnemyData = chooseEnemy();
 	var newEnemy = chosenEnemyData.scene.instantiate();
 	add_child(newEnemy);

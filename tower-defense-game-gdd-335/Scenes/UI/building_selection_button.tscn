@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://dda2q5l70vdph" path="res://Scripts/building_selection_button.gd" id="1_l21b4"]
 
 [node name="BuildingSelectionButton" type="Button" unique_id=576300492]
-custom_minimum_size = Vector2(53.99, 0)
+custom_minimum_size = Vector2(107.98, 0)
+offset_right = 243.31578
+offset_bottom = 207.0
 script = ExtResource("1_l21b4")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

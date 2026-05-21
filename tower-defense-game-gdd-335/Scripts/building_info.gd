@@ -9,7 +9,8 @@ func enable(building: BuildingData, pos: Vector2):
 	visible = true;
 	position = pos-pivot_offset;
 	var nameText: String = building.name+":\n"+building.description;
-	var costText: String = "\n\nIron: "+str(building.cost.iron)+"\nGold: "+str(building.cost.gold)+"\nCoal: "+str(building.cost.coal)+"\nWood: "+str(building.cost.wood);
+	#var costText: String = "\n\nIron: "+str(building.cost.iron)+"\nGold: "+str(building.cost.gold)+"\nCoal: "+str(building.cost.coal)+"\nWood: "+str(building.cost.wood);
+	var costText: String = "\nGold: "+str(building.cost.gold);
 	var finalText: String = nameText+costText;
 	text.text = finalText;
 

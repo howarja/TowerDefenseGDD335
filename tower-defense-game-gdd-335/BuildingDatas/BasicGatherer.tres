@@ -6,16 +6,14 @@
 
 [sub_resource type="Resource" id="Resource_m3ujj"]
 script = ExtResource("2_0ky1v")
-iron = -25
-coal = -40
-wood = -10
+gold = -60
 metadata/_custom_type_script = "uid://dpdumby43vmb1"
 
 [resource]
 script = ExtResource("3_5n2ve")
 buildingScene = ExtResource("1_vp0x0")
 name = "Basic Gatherer"
-description = "Gain wood, coal and iron. Can only be placed on Ore Deposits"
+description = "Gain wood, coal and iron. Can only be placed on Ore Deposi, must be connected to central building via tracks"
 cost = SubResource("Resource_m3ujj")
 requiredTileGroup = "OreDeposits"
 metadata/_custom_type_script = "uid://d08b2jyucj67r"

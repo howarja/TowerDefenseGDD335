@@ -11,9 +11,15 @@
 
 [node name="UI" type="CanvasLayer" unique_id=1517868707]
 
-[node name="ResourceText" type="RichTextLabel" parent="." unique_id=1073412433]
-offset_right = 609.0
-offset_bottom = 109.0
+[node name="Panel" type="Panel" parent="." unique_id=2018645702]
+offset_right = 188.0
+offset_bottom = 213.0
+
+[node name="ResourceText" type="RichTextLabel" parent="Panel" unique_id=1073412433]
+layout_mode = 0
+offset_right = 852.0
+offset_bottom = 385.0
+theme_override_font_sizes/normal_font_size = 35
 text = "Iron:
 Gold:
 Coal:
@@ -26,9 +32,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -279.0
-offset_top = -82.0
+offset_top = -189.0
 offset_right = 280.0
-offset_bottom = -32.0
+offset_bottom = -103.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1

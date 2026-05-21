@@ -6,8 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_k8inc"]
 script = ExtResource("2_hpl4r")
-iron = -5
-wood = -15
+gold = -20
 metadata/_custom_type_script = "uid://dpdumby43vmb1"
 
 [resource]

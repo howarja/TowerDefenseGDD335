@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 5.0;
 @export var damageDeal: float = 5.0;
 @export var damageCooldown: float = 0.1;
+@export var deathParticles: GPUParticles2D;
 var currentDamageCooldown: float = 0;
 
 @export var maxHealth: float = 100;
@@ -43,12 +44,14 @@ func _physics_process(delta: float) -> void:
 func setTarget(newTarget):
 	# set the target for the enemy to move towards
 	target = newTarget;
-	
+
 func damage(amount: float):
 	# lower the health of this tower, queueFree if tower has no health
 	currentHealth -= amount;
 	healthBar.setPercent(currentHealth/maxHealth);
+	deathParticles.emitting = true;
 	if currentHealth <= 0:
+		#deathParticles.reparent(get_parent());
 		queue_free();
 
 func getScale():

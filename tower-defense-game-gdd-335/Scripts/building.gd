@@ -52,6 +52,7 @@ func enable(value: Resources, newName: String):
 	setColor(Color.WHITE);
 	var tween = get_tree().create_tween();
 	tween.tween_property(sprite, "scale", spriteScale, 0.1).set_trans(Tween.TRANS_BOUNCE)
+	$GPUParticles2D.emitting = true;
 	
 	if value != null:
 		resourceValue = Resources.absResources(value);

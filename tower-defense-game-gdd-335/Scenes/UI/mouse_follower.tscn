@@ -10,14 +10,22 @@ offset_bottom = 40.0
 mouse_filter = 2
 script = ExtResource("1_nr0q2")
 
-[node name="PlacementInputs" type="RichTextLabel" parent="." unique_id=852706115]
+[node name="PlacementInputs" type="Panel" parent="." unique_id=843894423]
 visible = false
 layout_mode = 0
-offset_left = 33.0
-offset_top = -106.0
+offset_left = 30.0
+offset_top = -147.0
+offset_right = 276.0
+offset_bottom = -33.0
+
+[node name="PlacementInputsText" type="RichTextLabel" parent="PlacementInputs" unique_id=852706115]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
 offset_right = 263.0
-offset_bottom = -31.0
+offset_bottom = 104.0
 mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 21
 text = "R- rotate
 LMB - place
 Middle mouse - Cancel"

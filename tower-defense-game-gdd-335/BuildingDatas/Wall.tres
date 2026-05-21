@@ -6,8 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_m3ujj"]
 script = ExtResource("2_gi7oa")
-iron = -2
-wood = -5
+gold = -10
 metadata/_custom_type_script = "uid://dpdumby43vmb1"
 
 [resource]

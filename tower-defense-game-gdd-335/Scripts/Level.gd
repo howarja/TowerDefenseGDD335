@@ -53,7 +53,6 @@ func _ready() -> void:
 		replaceTile(newPos, oreDeposit, true);
 	setVisibility();
 
-
 func setVisibility():
 	for x in gridX:
 		for y in gridY:
