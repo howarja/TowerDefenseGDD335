@@ -39,7 +39,7 @@ static func absResources(resources: Resources):
 
 static func divideResrouces(resources: Resources, divider: float):
 	var newResource: Resources = Resources.new();
-	#newResource.setResources(resources);
+	newResource.setResources(resources);
 	#newResource.iron /= divider;
 	newResource.gold /= divider;
 	#newResource.coal /= divider;

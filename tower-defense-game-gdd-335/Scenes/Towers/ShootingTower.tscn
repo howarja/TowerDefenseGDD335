@@ -11,7 +11,11 @@ radius = 500
 projectileSpeed = 5.0
 projectileDamage = 5.0
 shootDelay = 1.0
+rangeUpgrade = 50.0
+firerateUpgrade = 0.3
+damageUpgrade = 5.0
 maxHealth = 30.0
+healthUpgrade = 15.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1097807904]
 texture = ExtResource("3_14wpt")

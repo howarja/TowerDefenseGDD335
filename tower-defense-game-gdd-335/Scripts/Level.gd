@@ -41,6 +41,7 @@ func _ready() -> void:
 	centralBuilding = replaceTile(Vector2i(gridX/2, gridY/2), centralBuildingPackedScene, false);
 	centralBuilding.enable(null, "Central building");
 	$Camera2D.position = centralBuilding.position;
+	$Camera2D.targetPos = centralBuilding.position;
 	enemyManger.setCentralBuilding(buildings[gridX/2][gridY/2]);
 	
 	# generate ore deposits

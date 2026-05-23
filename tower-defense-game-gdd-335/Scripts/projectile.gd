@@ -20,3 +20,6 @@ func setUp(newSpeed: float, newDir: Vector2, newDamage: float):
 	speed = newSpeed;
 	dir = newDir;
 	damage = newDamage;
+
+func _on_life_time_timeout() -> void:
+	queue_free();

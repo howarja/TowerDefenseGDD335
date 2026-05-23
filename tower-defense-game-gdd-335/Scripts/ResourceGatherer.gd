@@ -1,10 +1,12 @@
 extends "res://Scripts/building.gd"
 
 @export var resourceGain: Resources;
-@export var gainTime: float;
+@export var gainTime: float = 1;
 @export var requiresTrain: bool = true;
 @onready var train: PackedScene = preload("res://Scenes/Towers/Train.tscn");
 var currentCooldown: float = 1;
+
+@export var gainTimeUpgrade: float = 0;
 
 func _process(delta: float) -> void:
 	if !active:
@@ -12,18 +14,15 @@ func _process(delta: float) -> void:
 	
 	currentCooldown -= delta;
 	if currentCooldown <= 0:
-		currentCooldown = gainTime;
+		currentCooldown = 1/gainTime;
 		spawnTrain();
 
 func spawnTrain():
 	if requiresTrain:
 		var surroundings = getSurroundingTiles();
 		for i in surroundings.size():
-			print("surroundings exist");
 			if surroundings[i]!=null:
-				print("surroundings not null");
 				if surroundings[i].is_in_group("TrainTracks"):
-					print("found track");
 					var trainTrack = surroundings[i];
 					var newTrain = train.instantiate();
 					newTrain.position = trainTrack.position;
@@ -32,3 +31,7 @@ func spawnTrain():
 					return;
 	else:
 		Globals.playerManager.addResources(resourceGain);
+
+func upgrade():
+	super.upgrade();
+	gainTime+=gainTimeUpgrade;

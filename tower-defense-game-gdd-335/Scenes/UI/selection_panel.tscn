@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dwbcmpr2iq8qg"]
+
+[ext_resource type="Script" uid="uid://cbyyjvf3rbejw" path="res://Scenes/UI/selection_panel.gd" id="1_lhjr6"]
+
+[node name="SelectionPanel" type="Panel" unique_id=76515628]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -251.5
+offset_right = 361.0
+offset_bottom = 251.5
+grow_vertical = 2
+script = ExtResource("1_lhjr6")
+
+[node name="TitleText" type="RichTextLabel" parent="." unique_id=1486774056]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.0
+offset_right = 182.0
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "Selected: 5 buildings"
+
+[node name="SellButton" type="Button" parent="." unique_id=861166080]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.32257
+offset_top = 61.0
+offset_right = 92.32257
+offset_bottom = 115.0
+grow_horizontal = 2
+text = "Sell: +0 gold"
+
+[node name="RepairButton" type="Button" parent="." unique_id=1066261499]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -94.03226
+offset_top = 140.0
+offset_right = 94.03226
+offset_bottom = 195.0
+grow_horizontal = 2
+text = "Repair: -0 gold"
+
+[node name="UpgradeButton" type="Button" parent="." unique_id=1686553393]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -94.03226
+offset_top = 223.5
+offset_right = 94.03226
+offset_bottom = 278.5
+grow_horizontal = 2
+text = "Upgrade: -0 gold"
+
+[connection signal="button_down" from="SellButton" to="." method="_on_sell_button_button_down"]
+[connection signal="mouse_entered" from="SellButton" to="." method="_on_sell_button_mouse_entered"]
+[connection signal="mouse_exited" from="SellButton" to="." method="_on_sell_button_mouse_exited"]
+[connection signal="button_down" from="RepairButton" to="." method="_on_repair_button_button_down"]
+[connection signal="mouse_entered" from="RepairButton" to="." method="_on_repair_button_mouse_entered"]
+[connection signal="mouse_exited" from="RepairButton" to="." method="_on_repair_button_mouse_exited"]
+[connection signal="button_down" from="UpgradeButton" to="." method="_on_upgrade_button_button_down"]
+[connection signal="mouse_entered" from="UpgradeButton" to="." method="_on_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="UpgradeButton" to="." method="_on_upgrade_button_mouse_exited"]

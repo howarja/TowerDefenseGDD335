@@ -13,8 +13,9 @@ metadata/_custom_type_script = "uid://dpdumby43vmb1"
 [node name="EmptyTower" unique_id=1694176448 instance=ExtResource("1_0kpj6")]
 script = ExtResource("2_a66r1")
 resourceGain = SubResource("Resource_q4dai")
-gainTime = 3.0
+gainTime = 0.3
 requiresTrain = false
+gainTimeUpgrade = 0.0
 maxHealth = 1000.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1097807904]

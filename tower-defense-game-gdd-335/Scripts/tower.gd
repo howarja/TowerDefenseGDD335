@@ -10,6 +10,10 @@ extends "res://Scripts/building.gd"
 @export var shootDelay: float = 1;
 var currentShootDelay: float = 1;
 
+@export var rangeUpgrade: float = 0;
+@export var firerateUpgrade: float = 0;
+@export var damageUpgrade: float = 0;
+
 func _process(delta: float) -> void:
 	if !active:
 		return;
@@ -24,7 +28,7 @@ func _process(delta: float) -> void:
 		turret.look_at(enemies[targetIndex].position)
 		if currentShootDelay <= 0:
 			shoot(enemies[targetIndex].position - position);
-			currentShootDelay = shootDelay;
+			currentShootDelay = 1/shootDelay;
 		else:
 			currentShootDelay -= delta;
 
@@ -33,3 +37,10 @@ func shoot(dir: Vector2):
 	newBullet.setUp(projectileSpeed, dir, projectileDamage);
 	get_parent().add_child(newBullet);
 	newBullet.position = position;
+
+func upgrade():
+	super.upgrade();
+	projectileDamage+=damageUpgrade;
+	shootDelay += firerateUpgrade;
+	radius+=rangeUpgrade;
+	

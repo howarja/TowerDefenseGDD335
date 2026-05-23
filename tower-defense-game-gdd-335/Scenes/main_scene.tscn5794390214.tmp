@@ -37,12 +37,10 @@ script = ExtResource("4_iacmt")
 disabledCol = Color(1, 0, 0, 0.50980395)
 enabledCol = Color(1, 1, 1, 0.50980395)
 
-[node name="SelectionDisplay" type="Polygon2D" parent="PlayerManager" unique_id=903430667]
-visible = false
+[node name="SelectionDisplay" type="Sprite2D" parent="PlayerManager" unique_id=1295058811]
 modulate = Color(1, 1, 1, 0.48235294)
-offset = Vector2(50, 50)
 texture = ExtResource("10_drdnd")
-polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+offset = Vector2(50, 50)
 
 [node name="UI" parent="." unique_id=1517868707 instance=ExtResource("5_6ev3c")]
 script = ExtResource("6_6ev3c")

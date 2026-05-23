@@ -9,7 +9,7 @@ const ZOOM_RATE: float = 8.0;
 const ZOOM_MOVE_MULTIPLIER: float = 1.0;
 
 func _ready() -> void:
-	targetPos = position;
+	zoom = targetZoom*Vector2.ONE;
 
 func _physics_process(delta: float) -> void:
 	# interpolate the zoom of tha camera for smooth zooming
