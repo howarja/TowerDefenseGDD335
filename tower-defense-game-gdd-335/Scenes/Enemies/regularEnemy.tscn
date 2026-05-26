@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bb4jdhilld0gn"]
 
 [ext_resource type="Script" uid="uid://7vndgduwf75p" path="res://Scripts/enemy.gd" id="1_a3kf8"]
-[ext_resource type="Texture2D" uid="uid://dg0q4s24qtufj" path="res://Sprites/SlimeEnemy.png" id="2_4ag30"]
+[ext_resource type="Texture2D" uid="uid://dg0q4s24qtufj" path="res://Sprites/Enemies/SlimeEnemy.png" id="2_4ag30"]
 [ext_resource type="PackedScene" uid="uid://fiykttsjdmxa" path="res://Scenes/health_bar.tscn" id="3_020e1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcvw6"]

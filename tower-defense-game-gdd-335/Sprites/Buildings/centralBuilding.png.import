@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxjcmpx4w2syy"
-path="res://.godot/imported/bottomTower.png-c0a933d7c6eb25e6893d9b5dc6c9356b.ctex"
+uid="uid://bds8ld1ncthwu"
+path="res://.godot/imported/centralBuilding.png-db61440896acd43311da07d31e408a9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/bottomTower.png"
-dest_files=["res://.godot/imported/bottomTower.png-c0a933d7c6eb25e6893d9b5dc6c9356b.ctex"]
+source_file="res://Sprites/Buildings/centralBuilding.png"
+dest_files=["res://.godot/imported/centralBuilding.png-db61440896acd43311da07d31e408a9c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://85dltrw20so3"
-path="res://.godot/imported/kingSlime.png-73da23731f372d3bb6b7f709bd2c6539.ctex"
+uid="uid://bfgl55uegx4e"
+path="res://.godot/imported/trainTrackLeft.png-a3bdf1921293395cfe32438826d320fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/kingSlime.png"
-dest_files=["res://.godot/imported/kingSlime.png-73da23731f372d3bb6b7f709bd2c6539.ctex"]
+source_file="res://Sprites/Buildings/trainTrackLeft.png"
+dest_files=["res://.godot/imported/trainTrackLeft.png-a3bdf1921293395cfe32438826d320fe.ctex"]
 
 [params]
 

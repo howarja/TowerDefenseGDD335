@@ -2,7 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cy8l8ds31b7kp" path="res://Scenes/Towers/emptyBuilding.tscn" id="1_kvtn1"]
 [ext_resource type="Script" uid="uid://ct633l305w71b" path="res://Scripts/trainTrack.gd" id="2_rge0n"]
-[ext_resource type="Texture2D" uid="uid://bmh2rr0kdilb6" path="res://Sprites/trainTrackStraight.png" id="3_msjym"]
+[ext_resource type="Texture2D" uid="uid://c3lwqk3eqgptr" path="res://Sprites/Buildings/trainTrackUp.png" id="3_msjym"]
+[ext_resource type="Script" uid="uid://72m4p8l6vhvt" path="res://Scripts/DirectionalSprites.gd" id="4_t8bb5"]
+[ext_resource type="Texture2D" uid="uid://dsae8dnmc6i7o" path="res://Sprites/Buildings/trainTrackRight.png" id="5_jawkc"]
+[ext_resource type="Texture2D" uid="uid://c7cxjws11i70j" path="res://Sprites/Buildings/trainTrackDown.png" id="6_qhi54"]
+[ext_resource type="Texture2D" uid="uid://bfgl55uegx4e" path="res://Sprites/Buildings/trainTrackLeft.png" id="7_1js36"]
 
 [node name="EmptyTower" unique_id=1694176448 groups=["TrainTracks"] instance=ExtResource("1_kvtn1")]
 script = ExtResource("2_rge0n")
@@ -10,9 +14,12 @@ speed = 2.0
 speedUpgrade = 3.0
 maxHealth = 50.0
 healthUpgrade = 15.0
+upgradeCosts = Array[int]([10, 20, 40, 80, 160, 320])
 
 [node name="Sprite2D" parent="." index="0" unique_id=1097807904]
 texture = ExtResource("3_msjym")
+script = ExtResource("4_t8bb5")
+sprites = Array[Texture2D]([ExtResource("3_msjym"), ExtResource("7_1js36"), ExtResource("6_qhi54"), ExtResource("5_jawkc")])
 
 [node name="ArrowSprite" parent="." index="1" unique_id=2106868985]
 visible = true

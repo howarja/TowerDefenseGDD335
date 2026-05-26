@@ -14,7 +14,13 @@ var dir: Vector2i = Vector2.UP;
 var spriteScale
 
 @export var healthUpgrade: float = 0;
-@export var upgradeCosts: Array[int] = [50,100,200,400,800,1600,3200];
+@export var upgradeCosts: Array[int] = [50,100,200,400,800,1600];
+@export var upgradeColors: Array[Color] = [Color(0.626, 0.626, 0.626, 1.0),
+											Color("3ab7ff"),
+											Color("00ea93"),
+											Color("c099ff"),
+											Color("ff9679"),
+											Color("ffff")];
 var currentLevel: int = 0;
 
 func _ready() -> void:
@@ -22,6 +28,7 @@ func _ready() -> void:
 	spriteScale = sprite.scale;
 	sprite.scale /= 1.5;
 	currentHealth = maxHealth;
+	$Sprite2D.modulate = upgradeColors[currentLevel];
 
 func damage(amount: float):
 	# lower the health of this tower, queueFree if tower has no health
@@ -83,7 +90,8 @@ func getSellValue():
 func getRepairCost():
 	if getCanSell():
 		var healthPercent: float = currentHealth/maxHealth;
-		return Resources.divideResrouces(resourceValue, max(1/healthPercent, 0.2));
+		var repairCost = Resources.multiplyResources(resourceValue, (1-healthPercent)*2*currentLevel);
+		return repairCost.negative();
 	else:
 		return null;
 
@@ -96,7 +104,7 @@ func repair():
 	var healthPercent: float = currentHealth/maxHealth;
 	if getCanSell():
 		var repairCost = getRepairCost();
-		if healthPercent>0.99 && Globals.playerManager.resourceCostCheck(repairCost):
+		if healthPercent<0.99 && Globals.playerManager.resourceCostCheck(repairCost):
 			Globals.playerManager.addResources(repairCost);
 			currentHealth = maxHealth;
 			healthBar.setPercent(currentHealth/maxHealth);
@@ -111,11 +119,12 @@ func getUpgradeCost():
 
 func canUpgrade():
 	var cost = getUpgradeCost();
-	if Globals.playerManager.resourceCostCheck(cost)&&currentLevel<upgradeCosts.size():
-		upgrade();
+	if Globals.playerManager.resourceCostCheck(cost)&&currentLevel<upgradeCosts.size()-1:
 		currentLevel+=1;
 		Globals.playerManager.addResources(cost);
+		upgrade();
 
 func upgrade():
 	currentHealth+=healthUpgrade;
 	maxHealth+=healthUpgrade;
+	$Sprite2D.modulate = upgradeColors[currentLevel];

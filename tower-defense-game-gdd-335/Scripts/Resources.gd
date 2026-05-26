@@ -28,6 +28,12 @@ func aboveZero():
 	else:
 		return false;
 
+func negative():
+	var newResource: Resources = Resources.new();
+	newResource.setResources(self);
+	newResource.gold = -abs(newResource.gold);
+	return newResource;
+
 static func absResources(resources: Resources):
 	var newResource: Resources = Resources.new();
 	newResource.setResources(resources);
@@ -42,6 +48,15 @@ static func divideResrouces(resources: Resources, divider: float):
 	newResource.setResources(resources);
 	#newResource.iron /= divider;
 	newResource.gold /= divider;
+	#newResource.coal /= divider;
+	#newResource.wood /= divider;
+	return newResource;
+	
+static func multiplyResources(resources: Resources, multiplier: float):
+	var newResource: Resources = Resources.new();
+	newResource.setResources(resources);
+	#newResource.iron /= divider;
+	newResource.gold *= multiplier;
 	#newResource.coal /= divider;
 	#newResource.wood /= divider;
 	return newResource;

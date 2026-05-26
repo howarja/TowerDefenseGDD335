@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cy8l8ds31b7kp" path="res://Scenes/Towers/emptyBuilding.tscn" id="1_0kpj6"]
 [ext_resource type="Script" uid="uid://d57tkxgy2rdm" path="res://Scripts/ResourceGatherer.gd" id="2_a66r1"]
 [ext_resource type="Script" uid="uid://dpdumby43vmb1" path="res://Scripts/Resources.gd" id="3_brufa"]
-[ext_resource type="Texture2D" uid="uid://c2shj1fhbit13" path="res://Sprites/resourceGatherer.png" id="4_q4dai"]
+[ext_resource type="Texture2D" uid="uid://bds8ld1ncthwu" path="res://Sprites/Buildings/centralBuilding.png" id="4_q4dai"]
 
 [sub_resource type="Resource" id="Resource_q4dai"]
 script = ExtResource("3_brufa")
@@ -17,6 +17,8 @@ gainTime = 0.3
 requiresTrain = false
 gainTimeUpgrade = 0.0
 maxHealth = 1000.0
+upgradeCosts = Array[int]([0])
+upgradeColors = Array[Color]([Color(1, 1, 1, 1)])
 
 [node name="Sprite2D" parent="." index="0" unique_id=1097807904]
 texture = ExtResource("4_q4dai")

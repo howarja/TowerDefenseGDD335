@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		var gridPos = Globals.level.convertToGridSpace(get_global_mouse_position());
 		var worldPos = Globals.level.convertToWorldSpace(gridPos);
 		currentSelectedInstance.position = worldPos;
-		if Input.is_action_just_pressed("Rotate"):
+		if Input.is_action_just_pressed("Rotate")&&selectedBuilding.canRotate:
 			currentRot+=deg_to_rad(90);
 			currentSelectedInstance.rotation=currentRot;
 		elif Input.is_action_just_pressed("Deselect"):
@@ -100,6 +100,8 @@ func selectBuilding(building):
 	selectionDisplay.visible = (building!=null);
 
 func newBuilding():
+	if !selectedBuilding.canRotate:
+		currentRot = 0;
 	currentSelectedInstance = selectedBuilding.buildingScene.instantiate();
 	Globals.level.add_child(currentSelectedInstance);
 	currentSelectedInstance.rotation=currentRot;

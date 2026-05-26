@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsnstuhujrga3"
-path="res://.godot/imported/topTower.png-a4c486b6902c231593dfee64c2b75421.ctex"
+uid="uid://c3lwqk3eqgptr"
+path="res://.godot/imported/trainTrackUp.png-af140d3581c7785828edde6730c71941.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/topTower.png"
-dest_files=["res://.godot/imported/topTower.png-a4c486b6902c231593dfee64c2b75421.ctex"]
+source_file="res://Sprites/Buildings/trainTrackUp.png"
+dest_files=["res://.godot/imported/trainTrackUp.png-af140d3581c7785828edde6730c71941.ctex"]
 
 [params]
 

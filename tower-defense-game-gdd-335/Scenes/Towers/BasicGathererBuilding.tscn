@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cy8l8ds31b7kp" path="res://Scenes/Towers/emptyBuilding.tscn" id="1_i6fa8"]
 [ext_resource type="Script" uid="uid://d57tkxgy2rdm" path="res://Scripts/ResourceGatherer.gd" id="2_u1m1n"]
 [ext_resource type="Script" uid="uid://dpdumby43vmb1" path="res://Scripts/Resources.gd" id="3_1ksqs"]
-[ext_resource type="Texture2D" uid="uid://c2shj1fhbit13" path="res://Sprites/resourceGatherer.png" id="4_u1m1n"]
+[ext_resource type="Texture2D" uid="uid://bk1rxm2g5bdji" path="res://Sprites/Buildings/resourceGathererBase.png" id="4_1ksqs"]
+[ext_resource type="Texture2D" uid="uid://cq616tsd7mp6y" path="res://Sprites/Buildings/resourceGathererJewel.png" id="5_xakai"]
 
 [sub_resource type="Resource" id="Resource_ky7yv"]
 script = ExtResource("3_1ksqs")
@@ -19,4 +20,8 @@ gainTimeUpgrade = 0.3
 healthUpgrade = 50.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1097807904]
-texture = ExtResource("4_u1m1n")
+texture = ExtResource("4_1ksqs")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="1" unique_id=863086996]
+scale = Vector2(5, 5)
+texture = ExtResource("5_xakai")

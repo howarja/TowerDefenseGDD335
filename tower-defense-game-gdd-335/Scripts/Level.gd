@@ -44,7 +44,7 @@ func _ready() -> void:
 	$Camera2D.targetPos = centralBuilding.position;
 	enemyManger.setCentralBuilding(buildings[gridX/2][gridY/2]);
 	
-	# generate ore deposits
+	# generate ore 
 	var oreDepositPositions = [];
 	for i in totalOreDepositCount:
 		var newPos = Vector2i(randf_range(0,gridX), randf_range(0,gridY));

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg0q4s24qtufj"
-path="res://.godot/imported/SlimeEnemy.png-5e2ae8dfc9dfdee0f47dfb6cadbb2e74.ctex"
+uid="uid://cdfi1f5v604p6"
+path="res://.godot/imported/newTowerBase.png-a50e4f4a536867020afa5590eb57203f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SlimeEnemy.png"
-dest_files=["res://.godot/imported/SlimeEnemy.png-5e2ae8dfc9dfdee0f47dfb6cadbb2e74.ctex"]
+source_file="res://Sprites/Buildings/newTowerBase.png"
+dest_files=["res://.godot/imported/newTowerBase.png-a50e4f4a536867020afa5590eb57203f.ctex"]
 
 [params]
 

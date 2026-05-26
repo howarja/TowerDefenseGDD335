@@ -15,4 +15,5 @@ buildingScene = ExtResource("1_ba031")
 name = "Train Track"
 description = "For train travesal"
 cost = SubResource("Resource_k8inc")
+canRotate = true
 metadata/_custom_type_script = "uid://d08b2jyucj67r"

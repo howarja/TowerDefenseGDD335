@@ -9,7 +9,7 @@ func getNextPos():
 
 func getSpeed():
 	return 1/speed;
-	
+
 func upgrade():
 	super.upgrade();
 	speed+=speedUpgrade;

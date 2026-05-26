@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmh2rr0kdilb6"
-path="res://.godot/imported/trainTrackStraight.png-324e48d8eff212187b8c6c76041fc91d.ctex"
+uid="uid://dakt72kfaq7w5"
+path="res://.godot/imported/newTowerTurret.png-1786cfa301817492738317453342460b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/trainTrackStraight.png"
-dest_files=["res://.godot/imported/trainTrackStraight.png-324e48d8eff212187b8c6c76041fc91d.ctex"]
+source_file="res://Sprites/Buildings/newTowerTurret.png"
+dest_files=["res://.godot/imported/newTowerTurret.png-1786cfa301817492738317453342460b.ctex"]
 
 [params]
 

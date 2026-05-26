@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2shj1fhbit13"
-path="res://.godot/imported/resourceGatherer.png-10eb0cef2bea52ca7fb79d77d205a541.ctex"
+uid="uid://bk1rxm2g5bdji"
+path="res://.godot/imported/resourceGathererBase.png-d6503173662477011e0f66e9918eaa03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/resourceGatherer.png"
-dest_files=["res://.godot/imported/resourceGatherer.png-10eb0cef2bea52ca7fb79d77d205a541.ctex"]
+source_file="res://Sprites/Buildings/resourceGathererBase.png"
+dest_files=["res://.godot/imported/resourceGathererBase.png-d6503173662477011e0f66e9918eaa03.ctex"]
 
 [params]
 

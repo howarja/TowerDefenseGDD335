@@ -23,7 +23,6 @@ func _on_movement_timer_timeout() -> void:
 			movementTimer.wait_time = track.getSpeed();
 			var tween = get_tree().create_tween();
 			tween.tween_property(self, "position", track.getNextPos(), movementTimer.wait_time*0.6)
-			print(movementTimer.wait_time);
 		elif track==Globals.level.centralBuilding:
 			Globals.playerManager.addResources(resources);
 			queue_free();
