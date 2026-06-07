@@ -10,6 +10,8 @@ var currentDamageCooldown: float = 0;
 var currentHealth: float = 100;
 @onready var healthBar = $HealthBar;
 
+@export var cornerDistance: float = 15;
+
 var target;
 
 func _ready() -> void:
@@ -54,4 +56,4 @@ func damage(amount: float):
 		queue_free();
 
 func getScale():
-	return $Sprite2D.scale.length()*$Sprite2D.texture.get_size().length()*scale.length();
+	return cornerDistance;

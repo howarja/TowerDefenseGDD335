@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b81hxesf23pom"]
+
+[ext_resource type="Texture2D" uid="uid://blth6nj4lte07" path="res://old sprites/background.png" id="1_bjoyh"]
+
+[node name="SelectionDisplay" type="Polygon2D" unique_id=1814523296]
+visible = false
+offset = Vector2(50, 50)
+texture = ExtResource("1_bjoyh")
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)

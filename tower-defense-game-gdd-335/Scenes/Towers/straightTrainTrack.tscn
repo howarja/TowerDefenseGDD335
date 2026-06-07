@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dsae8dnmc6i7o" path="res://Sprites/Buildings/trainTrackRight.png" id="5_jawkc"]
 [ext_resource type="Texture2D" uid="uid://c7cxjws11i70j" path="res://Sprites/Buildings/trainTrackDown.png" id="6_qhi54"]
 [ext_resource type="Texture2D" uid="uid://bfgl55uegx4e" path="res://Sprites/Buildings/trainTrackLeft.png" id="7_1js36"]
+[ext_resource type="Texture2D" uid="uid://d3d8mvjc08fci" path="res://Sprites/arrow.png" id="8_qhi54"]
 
 [node name="EmptyTower" unique_id=1694176448 groups=["TrainTracks"] instance=ExtResource("1_kvtn1")]
 script = ExtResource("2_rge0n")
@@ -16,10 +17,13 @@ maxHealth = 50.0
 healthUpgrade = 15.0
 upgradeCosts = Array[int]([10, 20, 40, 80, 160, 320])
 
-[node name="Sprite2D" parent="." index="0" unique_id=1097807904]
+[node name="interactedSprite" parent="." index="0" unique_id=2106868985]
+visible = true
+position = Vector2(0, 0)
+texture = ExtResource("8_qhi54")
+offset = Vector2(0, -30)
+
+[node name="Sprite2D" parent="." index="1" unique_id=1097807904]
 texture = ExtResource("3_msjym")
 script = ExtResource("4_t8bb5")
 sprites = Array[Texture2D]([ExtResource("3_msjym"), ExtResource("7_1js36"), ExtResource("6_qhi54"), ExtResource("5_jawkc")])
-
-[node name="ArrowSprite" parent="." index="1" unique_id=2106868985]
-visible = true

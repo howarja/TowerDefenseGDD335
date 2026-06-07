@@ -41,7 +41,6 @@ func _process(delta: float) -> void:
 				currentWaveCooldown = min(maxWaveCooldown ,waveCooldown+waveCooldownIncrease*currentWave);
 				if currentWave%5==0 && currentWave<=30:
 					Globals.level.growLevel(levelIncreasePerWave);
-			remainingWeight-=1;
 			for i in enemySpawnAmount*currentWave:
 				spawnEnemy();
 
@@ -60,11 +59,8 @@ func chooseEnemy():
 	# firstly loop through all avalible enemies and add up their cances
 	var cumalitave: float = 0;
 	for i in enemies.size():
-		var pastWaves = currentWave - enemies[i].minWaves;
-		if pastWaves>=0:
-			var currentChance = enemies[i].chanceIncreasePerWave*pastWaves;
-			cumalitave += currentChance;
-			
+		cumalitave += calculateChance(enemies[i]);
+		
 	# choose a random number between 0 and total of all chances
 	var rand = randf()*cumalitave;
 	
@@ -73,10 +69,19 @@ func chooseEnemy():
 	for i in enemies.size():
 		var pastWaves = currentWave - enemies[i].minWaves;
 		if pastWaves>=0:
-			var currentChance = enemies[i].chanceIncreasePerWave*pastWaves;
-			newCumalitive += currentChance;
+			newCumalitive += calculateChance(enemies[i]);
 			if newCumalitive>=rand:
+				remainingWeight-=enemies[i].weight;
 				return enemies[i];
+
+func calculateChance(enemy: enemyData):
+	var pastWaves = currentWave - enemy.minWaves;
+	if pastWaves>=0:
+		var currentChance = enemy.initialChance + enemy.chanceChangePerWave*pastWaves;
+		currentChance = min(max(currentChance, enemy.minMaxChancePercent.x),enemy.minMaxChancePercent.y)
+		return currentChance;
+	else:
+		return 0;
 
 func newWave():
 	currentWave+=1;

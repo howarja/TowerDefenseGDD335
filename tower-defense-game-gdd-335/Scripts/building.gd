@@ -9,6 +9,7 @@ var currentHealth: float = 100;
 @onready var healthBar = $HealthBar;
 @onready var collision = $CollisionShape2D;
 @onready var sprite: Node2D = $Sprite2D;
+@export var interactedSprite: Sprite2D;
 
 var dir: Vector2i = Vector2.UP;
 var spriteScale
@@ -29,6 +30,7 @@ func _ready() -> void:
 	sprite.scale /= 1.5;
 	currentHealth = maxHealth;
 	$Sprite2D.modulate = upgradeColors[currentLevel];
+	interactedSprite.show();
 
 func damage(amount: float):
 	# lower the health of this tower, queueFree if tower has no health
@@ -60,7 +62,7 @@ func enable(value: Resources, newName: String):
 	var newDir = Vector2(cos(rot), sin(rot));
 	dir = newDir.normalized();
 	$CollisionShape2D.disabled = false;
-	$ArrowSprite.hide();
+	interactedSprite.hide();
 	setColor(Color.WHITE);
 	var tween = get_tree().create_tween();
 	tween.tween_property(sprite, "scale", spriteScale, 0.1).set_trans(Tween.TRANS_BOUNCE)
@@ -71,11 +73,14 @@ func enable(value: Resources, newName: String):
 
 func setColor(col: Color):
 	sprite.self_modulate = col;
+	interactedSprite.self_modulate = col;
 
 func select():
+	interactedSprite.show();
 	healthBar.setVisiblity(true, false);
 
 func deselect():
+	interactedSprite.hide();
 	healthBar.setVisiblity(false, false);
 
 func getCanSell():

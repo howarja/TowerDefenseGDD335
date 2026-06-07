@@ -1,6 +1,7 @@
 extends Sprite2D
 
 @export var sprites: Array[Texture2D];
+@export var keepRot: Array[Node2D];
 
 func _ready() -> void:
 	findSprite();
@@ -17,3 +18,6 @@ func findSprite():
 	var spriteIndex = floor(rot/degreePerSprite);
 	texture = sprites[spriteIndex];
 	global_rotation_degrees = 0;
+	
+	for i in keepRot.size():
+		keepRot[i].global_rotation_degrees = rot-offset;

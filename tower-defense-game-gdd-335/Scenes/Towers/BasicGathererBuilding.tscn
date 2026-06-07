@@ -16,12 +16,13 @@ script = ExtResource("2_u1m1n")
 resourceGain = SubResource("Resource_ky7yv")
 gainTime = 0.3
 requiresTrain = true
-gainTimeUpgrade = 0.3
+gainAmountUpgrade = 0.5
 healthUpgrade = 50.0
 
-[node name="Sprite2D" parent="." index="0" unique_id=1097807904]
-texture = ExtResource("4_1ksqs")
-
 [node name="Sprite2D2" type="Sprite2D" parent="." index="1" unique_id=863086996]
+z_index = 1
 scale = Vector2(5, 5)
 texture = ExtResource("5_xakai")
+
+[node name="Sprite2D" parent="." index="2" unique_id=1097807904]
+texture = ExtResource("4_1ksqs")

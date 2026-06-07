@@ -1,57 +1,45 @@
 [gd_scene format=3 uid="uid://bvtoesxkg6e0h"]
 
-[ext_resource type="Script" uid="uid://7vndgduwf75p" path="res://Scripts/enemy.gd" id="1_jvsyd"]
+[ext_resource type="PackedScene" uid="uid://bb4jdhilld0gn" path="res://Scenes/Enemies/regularEnemy.tscn" id="1_nk0lk"]
 [ext_resource type="Texture2D" uid="uid://bxj4gw1f6f2qy" path="res://Sprites/Enemies/smallSlime.png" id="2_jvsyd"]
-[ext_resource type="PackedScene" uid="uid://fiykttsjdmxa" path="res://Scenes/health_bar.tscn" id="3_mcdbk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcvw6"]
-size = Vector2(100, 74.99999)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nk0lk"]
+size = Vector2(32, 26)
 
-[sub_resource type="Curve" id="Curve_jvsyd"]
+[sub_resource type="Curve" id="Curve_nk0lk"]
 _data = [Vector2(0, 0), 0.0, 4.4957457, 0, 0, Vector2(1, 0), -1.2975117, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_q4gyu"]
-curve = SubResource("Curve_jvsyd")
+[sub_resource type="CurveTexture" id="CurveTexture_jvsyd"]
+curve = SubResource("Curve_nk0lk")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mcdbk"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q4gyu"]
 particle_flag_disable_z = true
 spread = 180.0
 initial_velocity_min = 192.84
 initial_velocity_max = 466.87997
 gravity = Vector3(0, 98, 0)
-scale_min = 2.11
-scale_max = 40.77
-scale_curve = SubResource("CurveTexture_q4gyu")
-color = Color(1, 0.2684915, 0.25813088, 1)
+scale_min = 6.85
+scale_max = 17.119999
+scale_curve = SubResource("CurveTexture_jvsyd")
+color = Color(0.49803922, 0, 0.047058824, 0.5764706)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1163011571 node_paths=PackedStringArray("deathParticles") groups=["Enemies"]]
-scale = Vector2(0.4, 0.4)
-collision_layer = 4
-collision_mask = 14
-script = ExtResource("1_jvsyd")
+[node name="Enemy" unique_id=1163011571 instance=ExtResource("1_nk0lk")]
 speed = 400.0
 damageDeal = 3.0
-deathParticles = NodePath("GPUParticles2D")
 maxHealth = 150.0
+cornerDistance = 13.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097807904]
-position = Vector2(0, -4.9999995)
-scale = Vector2(12.5, 12.5)
+[node name="Sprite2D" parent="." index="0" unique_id=1097807904]
+position = Vector2(0, -2)
 texture = ExtResource("2_jvsyd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=527616215]
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_jcvw6")
+[node name="CollisionShape2D" parent="." index="1" unique_id=527616215]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_nk0lk")
 
-[node name="HealthBar" parent="." unique_id=784601734 instance=ExtResource("3_mcdbk")]
-position = Vector2(0, -100)
+[node name="HealthBar" parent="." index="2" unique_id=784601734]
+position = Vector2(0, -35)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=72359437]
-emitting = false
-amount = 100
-lifetime = 0.3
-one_shot = true
-explosiveness = 0.5
-randomness = 1.0
-process_material = SubResource("ParticleProcessMaterial_mcdbk")
+[node name="hitParticles" parent="." index="3" unique_id=103658949]
+process_material = SubResource("ParticleProcessMaterial_q4gyu")

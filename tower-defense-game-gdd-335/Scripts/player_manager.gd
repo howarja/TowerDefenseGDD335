@@ -12,9 +12,8 @@ var currentRot = 0;
 @export var disabledCol: Color;
 @export var enabledCol: Color;
 
+var currentSelections: Array[selection];
 var selecting: bool = false;
-var intitalSelectionPos: Vector2;
-@onready var selectionDisplay = $SelectionDisplay;
 
 func _ready() -> void:
 	Globals.playerManager = self;
@@ -48,46 +47,37 @@ func _process(delta: float) -> void:
 			currentSelectedInstance.enable(selectedBuilding.cost, selectedBuilding.name);
 			newBuilding();
 	elif interactable:
-		if Input.is_action_pressed("Primary") && !selecting:
-			selecting = true;
-			intitalSelectionPos = get_global_mouse_position();
-			selectionDisplay.show();
+		if Input.is_action_pressed("Primary"):
+			if Input.is_action_pressed("MultiSelect")&&!selecting:
+				addSelection();
+			elif !selecting:
+				resetSelection();
 		elif Input.is_action_just_released("Primary") && selecting:
 			selecting = false;
-			selectRange(intitalSelectionPos, get_global_mouse_position())
-	setPolygon();
+			var totalSelection = [];
+			for i in currentSelections.size():
+				var selectedArea = currentSelections[i].getSelection()
+				for k in selectedArea.size():
+					if !totalSelection.has(selectedArea[k]):
+						totalSelection.append(selectedArea[k])
+			selectBuilding(totalSelection);
+	if currentSelections.size()>0 && selecting:
+		currentSelections[currentSelections.size()-1].updateSelection(get_global_mouse_position());
 
+func addSelection():
+	selecting = true;
+	var newSelection = selection.new();
+	newSelection.beginSelection(get_global_mouse_position(), $CanvasGroup)
+	currentSelections.append(newSelection);
 
-func setPolygon():
-	if selecting:
-		var lastPos = Globals.level.convertToWorldSpace(Globals.level.convertToGridSpace(get_global_mouse_position()));
-		var firstPos = Globals.level.convertToWorldSpace(Globals.level.convertToGridSpace(intitalSelectionPos));
-		var closeX = min(firstPos.x,lastPos.x)-100;
-		var closeY = min(firstPos.y,lastPos.y)-100;
-		var farX = max(firstPos.x,lastPos.x);
-		var farY = max(firstPos.y,lastPos.y);
-		selectionDisplay.polygon[0]= Vector2(closeX,closeY);
-		selectionDisplay.polygon[1] = Vector2(farX,closeY);
-		selectionDisplay.polygon[2] = Vector2(farX,farY);
-		selectionDisplay.polygon[3] = Vector2(closeX,farY);
-
-func selectRange(pos1: Vector2, pos2: Vector2):
-	pos1 = Globals.level.convertToGridSpace(pos1);
-	pos2 = Globals.level.convertToGridSpace(pos2);
-	var totalSelection = [];
-	
-	var x = min(pos1.x, pos2.x);
-	while x <= max(pos1.x, pos2.x):
-		var y = min(pos1.y, pos2.y);
-		while y <= max(pos1.y, pos2.y):
-			var building = Globals.level.getBuildingAt(Vector2i(x,y));
-			if building!=null:
-				totalSelection.append(building);
-			y+=1;
-		x+=1;
-	
-	selectBuilding(totalSelection);
-	selectionDisplay.visible = (totalSelection.size()>0);
+func resetSelection():
+	selecting = true;
+	for i in currentSelections.size():
+		currentSelections[i].endSelection();
+	currentSelections.clear();
+	var newSelection = selection.new();
+	newSelection.beginSelection(get_global_mouse_position(), $CanvasGroup)
+	currentSelections.append(newSelection);
 
 func setSelectedBuilding(newSelection: BuildingData):
 	selectedBuilding = newSelection;
@@ -97,7 +87,6 @@ func setSelectedBuilding(newSelection: BuildingData):
 
 func selectBuilding(building):
 	Globals.selectedBuildingInfo.setTarget(building);
-	selectionDisplay.visible = (building!=null);
 
 func newBuilding():
 	if !selectedBuilding.canRotate:

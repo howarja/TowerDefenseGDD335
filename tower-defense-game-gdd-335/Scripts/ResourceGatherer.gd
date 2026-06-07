@@ -6,7 +6,9 @@ extends "res://Scripts/building.gd"
 @onready var train: PackedScene = preload("res://Scenes/Towers/Train.tscn");
 var currentCooldown: float = 1;
 
-@export var gainTimeUpgrade: float = 0;
+#@export var gainTimeUpgrade: float = 0;
+var gainAmountMultiplier: float = 1;
+@export var gainAmountUpgrade: float = 0.5;
 
 func _process(delta: float) -> void:
 	if !active:
@@ -26,7 +28,7 @@ func spawnTrain():
 					var trainTrack = surroundings[i];
 					var newTrain = train.instantiate();
 					newTrain.position = trainTrack.position;
-					newTrain.setResources(resourceGain);
+					newTrain.setResources(Resources.multiplyResources(resourceGain, gainAmountMultiplier));
 					Globals.level.add_child(newTrain);
 					return;
 	else:
@@ -34,4 +36,4 @@ func spawnTrain():
 
 func upgrade():
 	super.upgrade();
-	gainTime+=gainTimeUpgrade;
+	gainAmountMultiplier+=gainAmountMultiplier;

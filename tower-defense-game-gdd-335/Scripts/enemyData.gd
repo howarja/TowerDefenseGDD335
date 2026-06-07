@@ -3,5 +3,7 @@ class_name enemyData
 
 @export var scene: PackedScene;
 @export var minWaves: int = 0;
-@export var chanceIncreasePerWave: float = 5;# in percent
-@export var maxChancePercent: float = 30;
+@export var initialChance: int = 100;
+@export var chanceChangePerWave: float = 5;# in percent
+@export var minMaxChancePercent: Vector2 = Vector2(1,100);
+@export var weight: float = 1;
