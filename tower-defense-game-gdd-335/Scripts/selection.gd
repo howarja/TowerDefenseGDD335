@@ -12,7 +12,7 @@ func beginSelection(pos: Vector2, playerManager):
 	playerManager.add_child(selectionDisplay);
 	selectionDisplay.show();
 	setPolygon();
-	
+
 func updateSelection(pos: Vector2):
 	self.finalPos = pos;
 	setPolygon();

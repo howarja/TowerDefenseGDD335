@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dqlh8wd48nglp"]
+
+[ext_resource type="PackedScene" uid="uid://bb4jdhilld0gn" path="res://Scenes/Enemies/regularEnemy.tscn" id="1_qjdo2"]
+[ext_resource type="Texture2D" uid="uid://85dltrw20so3" path="res://Sprites/Enemies/kingSlime.png" id="2_qjdo2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjcd"]
+size = Vector2(312, 512)
+
+[sub_resource type="Curve" id="Curve_108v8"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 2.1138916), 0.0, 0.0, 0, 0, Vector2(1, 7.2265625), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tx3ph"]
+curve = SubResource("Curve_108v8")
+
+[sub_resource type="Curve" id="Curve_pbjcd"]
+_limits = [-2000.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.81886786, -2000), -6731.999, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xaw3e"]
+curve = SubResource("Curve_pbjcd")
+
+[sub_resource type="Curve" id="Curve_tx3ph"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.21886793, 1), 0.0, 0.0, 0, 0, Vector2(0.8962264, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.4122558, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_k31rk"]
+curve = SubResource("Curve_tx3ph")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k31rk"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 104.59
+angle_min = -304.5
+angle_max = 334.50003
+angle_curve = SubResource("CurveTexture_tx3ph")
+direction = Vector3(0, -1, 0)
+spread = 58.728
+initial_velocity_min = 126.46999
+initial_velocity_max = 481.03
+gravity = Vector3(0, -980, 0)
+linear_accel_min = 0.99999774
+linear_accel_max = 0.99999774
+linear_accel_curve = SubResource("CurveTexture_xaw3e")
+damping_min = 100.00001
+damping_max = 250.00002
+scale_min = 4.6
+scale_max = 4.6
+scale_curve = SubResource("CurveTexture_k31rk")
+turbulence_noise_scale = 10.0
+
+[node name="Enemy" unique_id=1163011571 instance=ExtResource("1_qjdo2")]
+speed = 300.0
+damageDeal = 45.0
+maxHealth = 10000.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=1097807904]
+visible = false
+position = Vector2(105.99999, -6)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=527616215]
+position = Vector2(-1, -228)
+shape = SubResource("RectangleShape2D_pbjcd")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="4" unique_id=925370934]
+position = Vector2(0, 3)
+amount = 45
+texture = ExtResource("2_qjdo2")
+process_material = SubResource("ParticleProcessMaterial_k31rk")

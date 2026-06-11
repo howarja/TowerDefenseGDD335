@@ -5,5 +5,5 @@ func updateResourceText(resources: Resources):
 	var newText: String = "Gold: " + str(resources.gold);
 	$Panel/ResourceText.text = newText;
 	
-func updateWaveTimerText(newTime: int):
-	$Panel2/WaveTimer.text = "Next wave: "+str(newTime);
+func updateWaveTimerText(newTime: int, currentWave: int):
+	$Panel2/WaveTimer.text = "Wave "+str(currentWave+1)+" in " +str(newTime);

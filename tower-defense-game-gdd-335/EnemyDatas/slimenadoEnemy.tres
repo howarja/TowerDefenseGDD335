@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="enemyData" format=3 uid="uid://c72heasrhionh"]
+
+[ext_resource type="PackedScene" uid="uid://d012b30hs86t3" path="res://Scenes/Enemies/tornadoEnemy.tscn" id="1_phwvf"]
+[ext_resource type="Script" uid="uid://buksg2ouisqh1" path="res://Scripts/enemyData.gd" id="2_vq2kq"]
+
+[resource]
+script = ExtResource("2_vq2kq")
+scene = ExtResource("1_phwvf")
+initialChance = 2
+minMaxChancePercent = Vector2(0, 100)
+metadata/_custom_type_script = "uid://buksg2ouisqh1"

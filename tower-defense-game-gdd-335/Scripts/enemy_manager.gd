@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	# spawn a new enemy on a cooldown
 	if currentWaveCooldown>0:
 		currentWaveCooldown -= delta;
-		ui.updateWaveTimerText(currentWaveCooldown);
+		ui.updateWaveTimerText(currentWaveCooldown, currentWave);
 		if currentWaveCooldown<=0:
 			newWave();
 	else:

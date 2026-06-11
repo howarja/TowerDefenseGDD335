@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://dlnoci7jw5nji" path="res://EnemyDatas/fastEnemy.tres" id="6_ioaeq"]
 [ext_resource type="Resource" uid="uid://bmr2p7si7tyqb" path="res://EnemyDatas/kingEnemy.tres" id="7_7ewk0"]
 [ext_resource type="Resource" uid="uid://c7tvvvy4o7hnt" path="res://EnemyDatas/regularEnemy.tres" id="8_lhp3t"]
-[ext_resource type="Resource" uid="uid://c72heasrhionh" path="res://EnemyDatas/slimenadoEnemy.tres" id="9_drdnd"]
+[ext_resource type="Texture2D" uid="uid://d3d8mvjc08fci" path="res://Sprites/arrow.png" id="10_drdnd"]
 
 [node name="MainScene" type="Node2D" unique_id=1004797404]
 script = ExtResource("1_52fb6")
@@ -26,7 +26,7 @@ script = ExtResource("2_6l7je")
 
 [node name="EnemyManager" type="Node2D" parent="." unique_id=557131222]
 script = ExtResource("3_jv6wh")
-enemies = Array[ExtResource("4_76v2p")]([ExtResource("5_drdnd"), ExtResource("6_ioaeq"), ExtResource("7_7ewk0"), ExtResource("8_lhp3t"), ExtResource("9_drdnd")])
+enemies = Array[ExtResource("4_76v2p")]([ExtResource("5_drdnd"), ExtResource("6_ioaeq"), ExtResource("7_7ewk0"), ExtResource("8_lhp3t")])
 enemySpawnAmount = 1
 enemySpawnCooldown = 5.0
 waveCooldown = 40.0
@@ -39,6 +39,16 @@ enabledCol = Color(1, 1, 1, 0.50980395)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="PlayerManager" unique_id=1285630072]
 self_modulate = Color(1, 1, 1, 0.48235294)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerManager/CanvasGroup" unique_id=1056577250]
+position = Vector2(-190.00002, -42.00003)
+scale = Vector2(12.09375, 12.09375)
+texture = ExtResource("10_drdnd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="PlayerManager/CanvasGroup" unique_id=55406971]
+position = Vector2(-16.000015, -52.000004)
+scale = Vector2(12.09375, 12.09375)
+texture = ExtResource("10_drdnd")
 
 [node name="UI" parent="." unique_id=1517868707 instance=ExtResource("5_6ev3c")]
 script = ExtResource("6_6ev3c")
