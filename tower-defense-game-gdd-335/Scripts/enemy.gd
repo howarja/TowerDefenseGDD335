@@ -33,13 +33,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide();
 	
 	# damage any buildings this enemy touches
+	var damaged: bool = false;
 	for i in get_slide_collision_count():
 		var kinematicCollision = get_slide_collision(i);
 		var collision = kinematicCollision.get_collider();
 		if collision.is_in_group("Buildings"):
 			if currentDamageCooldown <= 0:
 				collision.damage(damageDeal);
-				currentDamageCooldown = damageCooldown;
+				damaged = true;
+	if damaged:
+		currentDamageCooldown = damageCooldown;
 			
 	currentDamageCooldown -= delta;
 

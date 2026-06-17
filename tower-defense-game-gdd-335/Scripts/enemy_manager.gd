@@ -15,6 +15,10 @@ var currentWaveCooldown: float = 0;
 @export var waveCooldownIncrease: float = 15;
 @export var maxWaveCooldown: float = 60;
 
+@export var bosses: Array[enemyData];
+@export var bossWaves: Array[int];
+var currentBoss: int = 0;
+
 var spawnDist: float = 3000;
 
 var centralBuilding;
@@ -35,25 +39,37 @@ func _process(delta: float) -> void:
 		if currentWaveCooldown<=0:
 			newWave();
 	else:
-		currentSpawnCooldown -= delta;
-		if currentSpawnCooldown <= 0 && centralBuilding!=null:
-			if remainingWeight<=0:
-				currentWaveCooldown = min(maxWaveCooldown ,waveCooldown+waveCooldownIncrease*currentWave);
-				if currentWave%5==0 && currentWave<=30:
-					Globals.level.growLevel(levelIncreasePerWave);
-			for i in enemySpawnAmount*currentWave:
-				spawnEnemy();
+		if currentWave == bossWaves[min(bossWaves.size(), currentBoss)]:
+			spawnBoss();
+			endWave();
+		else:
+			currentSpawnCooldown -= delta;
+			if currentSpawnCooldown <= 0 && centralBuilding!=null:
+				if remainingWeight<=0:
+					endWave();
+				for i in enemySpawnAmount*currentWave:
+					spawnRandomEnemy();
 
-func spawnEnemy():
+func endWave():
+	currentWaveCooldown = min(maxWaveCooldown ,waveCooldown+waveCooldownIncrease*currentWave);
+	if currentWave%5==0 && currentWave<=30:
+		Globals.level.growLevel(levelIncreasePerWave);
+func spawnBoss():
+	spawnEnemy(bosses[min(bosses.size()-1, currentBoss)])
+	currentBoss+=1;
+
+func spawnRandomEnemy():
 	var chosenEnemyData = chooseEnemy();
+	spawnEnemy(chosenEnemyData);
+	currentSpawnCooldown = enemySpawnCooldown/currentWave;
+
+func spawnEnemy(chosenEnemyData: enemyData):
 	var newEnemy = chosenEnemyData.scene.instantiate();
 	add_child(newEnemy);
 	
 	var newPos = centralBuilding.position+Vector2(randf()-0.5, randf()-0.5).normalized()*spawnDist;
 	newEnemy.position = newPos;
 	newEnemy.setTarget(centralBuilding);
-	
-	currentSpawnCooldown = enemySpawnCooldown/currentWave;
 
 func chooseEnemy():
 	# firstly loop through all avalible enemies and add up their cances

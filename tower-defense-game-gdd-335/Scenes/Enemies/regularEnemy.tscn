@@ -30,9 +30,9 @@ collision_layer = 4
 collision_mask = 14
 script = ExtResource("1_a3kf8")
 speed = 150.0
-damageDeal = 3.5
+damageDeal = 1.2
 deathParticles = NodePath("hitParticles")
-maxHealth = 35.0
+maxHealth = 30.0
 cornerDistance = 30.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097807904]

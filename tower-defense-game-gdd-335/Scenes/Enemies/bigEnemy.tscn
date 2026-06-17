@@ -7,7 +7,7 @@
 size = Vector2(156, 106)
 
 [node name="Enemy" unique_id=1163011571 instance=ExtResource("1_w41cs")]
-damageDeal = 30.0
+damageDeal = 10.0
 maxHealth = 400.0
 cornerDistance = 60.0
 

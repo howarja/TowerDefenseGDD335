@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://bmr2p7si7tyqb" path="res://EnemyDatas/kingEnemy.tres" id="7_7ewk0"]
 [ext_resource type="Resource" uid="uid://c7tvvvy4o7hnt" path="res://EnemyDatas/regularEnemy.tres" id="8_lhp3t"]
 [ext_resource type="Resource" uid="uid://c72heasrhionh" path="res://EnemyDatas/slimenadoEnemy.tres" id="9_drdnd"]
+[ext_resource type="Resource" uid="uid://bwixjennsfnn3" path="res://EnemyDatas/kingSlimenadoEnemy.tres" id="10_ioaeq"]
 
 [node name="MainScene" type="Node2D" unique_id=1004797404]
 script = ExtResource("1_52fb6")
@@ -31,6 +32,8 @@ enemySpawnAmount = 1
 enemySpawnCooldown = 5.0
 waveCooldown = 40.0
 maxWaveCooldown = 75.0
+bosses = Array[ExtResource("4_76v2p")]([ExtResource("9_drdnd"), ExtResource("10_ioaeq")])
+bossWaves = Array[int]([10, 20])
 
 [node name="PlayerManager" type="Node2D" parent="." unique_id=1572353153]
 script = ExtResource("4_iacmt")

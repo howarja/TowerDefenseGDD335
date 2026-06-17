@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_vq2kq")
 scene = ExtResource("1_phwvf")
+minWaves = 10
 initialChance = 2
 minMaxChancePercent = Vector2(0, 100)
 metadata/_custom_type_script = "uid://buksg2ouisqh1"

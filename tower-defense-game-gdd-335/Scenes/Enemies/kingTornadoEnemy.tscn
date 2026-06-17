@@ -4,11 +4,43 @@
 [ext_resource type="Texture2D" uid="uid://85dltrw20so3" path="res://Sprites/Enemies/kingSlime.png" id="2_qjdo2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjcd"]
-size = Vector2(312, 512)
+size = Vector2(2058, 7339)
+
+[sub_resource type="Curve" id="Curve_qjdo2"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -0.084472656), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wilco"]
+curve = SubResource("Curve_qjdo2")
+
+[sub_resource type="Gradient" id="Gradient_qjdo2"]
+colors = PackedColorArray(0.42745098, 0.42745098, 0.42745098, 0.53333336, 0.11764706, 0.11764706, 0.11764706, 0.5019608)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wilco"]
+gradient = SubResource("Gradient_qjdo2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bgbu1"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 0.225, 1)
+emission_shape = 1
+emission_sphere_radius = 1000.0
+angle_min = -360.0
+angle_max = 360.00003
+angle_curve = SubResource("CurveTexture_wilco")
+spread = 111.989
+initial_velocity_min = 1000.0
+initial_velocity_max = 2000.0
+orbit_velocity_min = -4.0
+orbit_velocity_max = 4.0000005
+gravity = Vector3(0, -50000, 0)
+scale_min = 88.46
+scale_max = 114.78
+color_ramp = SubResource("GradientTexture1D_wilco")
 
 [sub_resource type="Curve" id="Curve_108v8"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
-_data = [Vector2(0, 2.1138916), 0.0, 0.0, 0, 0, Vector2(1, 7.2265625), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 2.1138916), 0.0, 0.0, 0, 0, Vector2(1, 4.306793), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_tx3ph"]
@@ -23,24 +55,25 @@ point_count = 2
 curve = SubResource("Curve_pbjcd")
 
 [sub_resource type="Curve" id="Curve_tx3ph"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.21886793, 1), 0.0, 0.0, 0, 0, Vector2(0.8962264, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.4122558, 0.0, 0, 0]
-point_count = 4
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.6993865, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.4122558, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_k31rk"]
 curve = SubResource("Curve_tx3ph")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k31rk"]
 particle_flag_disable_z = true
+emission_shape_scale = Vector3(12, 5, 1)
 emission_shape = 1
 emission_sphere_radius = 104.59
 angle_min = -304.5
 angle_max = 334.50003
 angle_curve = SubResource("CurveTexture_tx3ph")
 direction = Vector3(0, -1, 0)
-spread = 58.728
-initial_velocity_min = 126.46999
-initial_velocity_max = 481.03
-gravity = Vector3(0, -980, 0)
+spread = 34.428
+orbit_velocity_min = -0.22999991
+orbit_velocity_max = 0.23000011
+gravity = Vector3(0, -20000, 0)
 linear_accel_min = 0.99999774
 linear_accel_max = 0.99999774
 linear_accel_curve = SubResource("CurveTexture_xaw3e")
@@ -61,11 +94,17 @@ visible = false
 position = Vector2(105.99999, -6)
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=527616215]
-position = Vector2(-1, -228)
+position = Vector2(3, -3641.5)
 shape = SubResource("RectangleShape2D_pbjcd")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="4" unique_id=925370934]
-position = Vector2(0, 3)
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." index="4" unique_id=1062931774]
+position = Vector2(-7, 42)
+amount = 128
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_bgbu1")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="5" unique_id=925370934]
+position = Vector2(27, -541)
 amount = 45
 texture = ExtResource("2_qjdo2")
 process_material = SubResource("ParticleProcessMaterial_k31rk")
