@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_w2huy")
+enemyName = "KING SLIMENADO"
 scene = ExtResource("1_1e3bg")
 minWaves = 20
 initialChance = 2

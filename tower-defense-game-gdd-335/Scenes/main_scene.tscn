@@ -33,7 +33,7 @@ enemySpawnCooldown = 5.0
 waveCooldown = 40.0
 maxWaveCooldown = 75.0
 bosses = Array[ExtResource("4_76v2p")]([ExtResource("9_drdnd"), ExtResource("10_ioaeq")])
-bossWaves = Array[int]([10, 20])
+bossWaves = Array[int]([1, 20])
 
 [node name="PlayerManager" type="Node2D" parent="." unique_id=1572353153]
 script = ExtResource("4_iacmt")

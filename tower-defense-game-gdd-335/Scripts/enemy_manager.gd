@@ -54,8 +54,12 @@ func endWave():
 	currentWaveCooldown = min(maxWaveCooldown ,waveCooldown+waveCooldownIncrease*currentWave);
 	if currentWave%5==0 && currentWave<=30:
 		Globals.level.growLevel(levelIncreasePerWave);
+	
 func spawnBoss():
-	spawnEnemy(bosses[min(bosses.size()-1, currentBoss)])
+	var bossData = bosses[min(bosses.size()-1, currentBoss)];
+	var boss = spawnEnemy(bossData);
+	boss.changeHealthBar(Globals.bossHealthBar);
+	Globals.bossHealthBar.setName(bossData.enemyName);
 	currentBoss+=1;
 
 func spawnRandomEnemy():
@@ -70,13 +74,14 @@ func spawnEnemy(chosenEnemyData: enemyData):
 	var newPos = centralBuilding.position+Vector2(randf()-0.5, randf()-0.5).normalized()*spawnDist;
 	newEnemy.position = newPos;
 	newEnemy.setTarget(centralBuilding);
+	return newEnemy;
 
 func chooseEnemy():
 	# firstly loop through all avalible enemies and add up their cances
 	var cumalitave: float = 0;
 	for i in enemies.size():
 		cumalitave += calculateChance(enemies[i]);
-		
+	
 	# choose a random number between 0 and total of all chances
 	var rand = randf()*cumalitave;
 	

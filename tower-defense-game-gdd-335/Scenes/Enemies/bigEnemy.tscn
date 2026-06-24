@@ -18,3 +18,6 @@ texture = ExtResource("2_n34bp")
 [node name="CollisionShape2D" parent="." index="1" unique_id=527616215]
 position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_w41cs")
+
+[node name="HealthBar" parent="." index="2" unique_id=784601734]
+yOffset = 160

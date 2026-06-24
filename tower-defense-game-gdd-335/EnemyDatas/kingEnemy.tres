@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_pueb8")
+enemyName = "King Slime"
 scene = ExtResource("1_pedof")
 minWaves = 10
 initialChance = 1

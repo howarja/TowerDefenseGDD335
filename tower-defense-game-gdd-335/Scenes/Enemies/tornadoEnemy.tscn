@@ -96,6 +96,9 @@ position = Vector2(105.99999, -6)
 position = Vector2(-1, -228)
 shape = SubResource("RectangleShape2D_pbjcd")
 
+[node name="HealthBar" parent="." index="2" unique_id=784601734]
+yOffset = 400
+
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="." index="4" unique_id=1060644115]
 position = Vector2(-7, 42)
 amount = 128

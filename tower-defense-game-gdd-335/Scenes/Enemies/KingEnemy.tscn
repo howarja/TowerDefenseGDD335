@@ -39,5 +39,8 @@ texture = ExtResource("2_stc5e")
 position = Vector2(0.6666666, -3.5)
 shape = SubResource("RectangleShape2D_omg3w")
 
+[node name="HealthBar" parent="." index="2" unique_id=784601734]
+yOffset = -960
+
 [node name="hitParticles" parent="." index="3" unique_id=103658949]
 process_material = SubResource("ParticleProcessMaterial_1qtlc")

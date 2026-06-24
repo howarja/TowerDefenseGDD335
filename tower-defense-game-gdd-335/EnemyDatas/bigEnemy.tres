@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_l0kj5")
+enemyName = "Big Slime"
 scene = ExtResource("1_s22r0")
 minWaves = 5
 initialChance = 15

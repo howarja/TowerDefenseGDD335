@@ -1,6 +1,7 @@
 extends Resources
 class_name enemyData
 
+@export var enemyName: String;
 @export var scene: PackedScene;
 @export var minWaves: int = 0;
 @export var initialChance: int = 100;

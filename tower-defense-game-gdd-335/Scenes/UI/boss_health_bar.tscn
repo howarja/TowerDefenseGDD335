@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bsm6ihc3js7np"]
+
+[ext_resource type="Script" uid="uid://d443ucg06ks3" path="res://Scripts/UIHealthBar.gd" id="1_yxwhj"]
+
+[sub_resource type="DPITexture" id="DPITexture_mbl0m"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".75\"/></svg>
+"
+base_scale = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3gqk"]
+content_margin_left = 4.0
+content_margin_top = 30.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmm6b"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.90588236, 0, 0.07450981, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[node name="BossHealthBar" type="HSlider" unique_id=102488980]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 321.0
+offset_top = 88.0
+offset_right = -321.0
+offset_bottom = 138.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_icons/grabber = SubResource("DPITexture_mbl0m")
+theme_override_styles/slider = SubResource("StyleBoxFlat_s3gqk")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_pmm6b")
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("1_yxwhj")
+
+[node name="BossName" type="RichTextLabel" parent="." unique_id=1842769400]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 2.0
+offset_right = 894.0
+offset_bottom = 53.0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "[center] KING SLIME-NADO"

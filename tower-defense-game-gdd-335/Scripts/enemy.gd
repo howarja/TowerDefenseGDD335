@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 				damaged = true;
 	if damaged:
 		currentDamageCooldown = damageCooldown;
-			
+	
 	currentDamageCooldown -= delta;
 
 func setTarget(newTarget):
@@ -56,7 +56,13 @@ func damage(amount: float):
 	healthBar.setPercent(currentHealth/maxHealth);
 	deathParticles.emitting = true;
 	if currentHealth <= 0:
+		healthBar.setVisiblity(false, false);
 		queue_free();
 
 func getScale():
 	return cornerDistance;
+	
+func changeHealthBar(newHealthBar):
+	newHealthBar.setVisiblity(false, true);
+	self.healthBar = newHealthBar;
+	newHealthBar.setVisiblity(true, false);

@@ -4,7 +4,7 @@ extends Sprite2D
 @onready var background = $".";
 @onready var fill = $Pivot/Fill;
 @onready var visiblityTimer = $VisiblityTimer;
-var yOffset: int = 80;
+@export var yOffset: int = 80;
 var maxScaleX: float;
 
 var isVisible: bool = false;
