@@ -23,9 +23,14 @@ var spawnDist: float = 3000;
 
 var centralBuilding;
 @onready var ui = $"../UI";
+var enemiesAlive: bool = false;
 
 func _ready() -> void:
 	currentWaveCooldown = waveCooldown;
+	Globals.enemyManager = self;
+	
+func getEnemiesAlive():
+	return enemiesAlive;
 
 func setCentralBuilding(newBuilding):
 	# set the building for the enemies to target
@@ -33,11 +38,13 @@ func setCentralBuilding(newBuilding):
 
 func _process(delta: float) -> void:
 	# spawn a new enemy on a cooldown
+	enemiesAlive = (get_child_count()>0);
 	if currentWaveCooldown>0:
-		currentWaveCooldown -= delta;
-		ui.updateWaveTimerText(currentWaveCooldown, currentWave);
-		if currentWaveCooldown<=0:
-			newWave();
+		if !enemiesAlive:
+			currentWaveCooldown -= delta;
+			ui.updateWaveTimerText(currentWaveCooldown, currentWave);
+			if currentWaveCooldown<=0:
+				newWave();
 	else:
 		if currentWave == bossWaves[min(bossWaves.size(), currentBoss)]:
 			spawnBoss();
@@ -107,3 +114,4 @@ func calculateChance(enemy: enemyData):
 func newWave():
 	currentWave+=1;
 	remainingWeight = weightPerWave * currentWave;
+	Globals.playerManager.disable();

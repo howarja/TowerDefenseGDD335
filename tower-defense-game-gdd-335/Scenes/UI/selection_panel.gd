@@ -72,9 +72,16 @@ func _on_sell_button_mouse_exited() -> void:
 
 func _on_repair_button_button_down() -> void:
 	if targets != null:
+		var totalRepair: Resources = Resources.new();
 		for i in targets.size():
 			if targets[i]!=null:
-				targets[i].repair();
+				totalRepair.addResources(targets[i].getRepairCost());
+		
+		if Globals.playerManager.resourceCostCheck(totalRepair):
+			if targets != null:
+				for i in targets.size():
+					if targets[i]!=null:
+						targets[i].repair();
 	setButtonText();
 
 func _on_repair_button_mouse_entered() -> void:
@@ -91,7 +98,13 @@ func _on_upgrade_button_mouse_exited() -> void:
 
 func _on_upgrade_button_button_down() -> void:
 	if targets != null:
+		var totalUpgrade: Resources = Resources.new();
 		for i in targets.size():
 			if targets[i]!=null:
-				targets[i].canUpgrade();
+				totalUpgrade.addResources(targets[i].getUpgradeCost());
+		
+		if Globals.playerManager.resourceCostCheck(totalUpgrade):
+			for i in targets.size():
+				if targets[i]!=null:
+					targets[i].canUpgrade();
 	setButtonText();

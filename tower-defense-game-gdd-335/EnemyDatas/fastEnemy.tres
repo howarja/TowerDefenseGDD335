@@ -7,7 +7,7 @@
 script = ExtResource("2_k06wv")
 enemyName = "Baby Slime"
 scene = ExtResource("1_1i7sl")
-initialChance = 0
+initialChance = 2
 minMaxChancePercent = Vector2(0, 300)
-weight = 2.0
+weight = 3.0
 metadata/_custom_type_script = "uid://buksg2ouisqh1"

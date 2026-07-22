@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dg0q4s24qtufj" path="res://Sprites/Enemies/SlimeEnemy.png" id="2_xaw3e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjcd"]
-size = Vector2(312, 512)
+size = Vector2(249.6, 249.6)
 
 [sub_resource type="Curve" id="Curve_xaw3e"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
@@ -93,7 +93,7 @@ visible = false
 position = Vector2(105.99999, -6)
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=527616215]
-position = Vector2(-1, -228)
+position = Vector2(-1, -68)
 shape = SubResource("RectangleShape2D_pbjcd")
 
 [node name="HealthBar" parent="." index="2" unique_id=784601734]

@@ -91,12 +91,18 @@ func getSellValue():
 		return Resources.divideResrouces(resourceValue, 2);
 	else:
 		return null;
-
+	
 func getRepairCost():
 	if getCanSell():
 		var healthPercent: float = currentHealth/maxHealth;
-		var repairCost = Resources.multiplyResources(resourceValue, (1-healthPercent)*2*currentLevel);
-		return repairCost.negative();
+		if healthPercent<1:
+			return resourceValue.negative();
+		else:
+			var emptyResource = Resources.new();
+			return emptyResource;
+		#var healthPercent: float = currentHealth/maxHealth;
+		#var repairCost = Resources.multiplyResources(resourceValue, (1-healthPercent)*2*currentLevel);
+		#return repairCost.negative();
 	else:
 		return null;
 

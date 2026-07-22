@@ -11,5 +11,5 @@ minWaves = 5
 initialChance = 15
 chanceChangePerWave = 10.0
 minMaxChancePercent = Vector2(0, 600)
-weight = 4.0
+weight = 5.0
 metadata/_custom_type_script = "uid://buksg2ouisqh1"

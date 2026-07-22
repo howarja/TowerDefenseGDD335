@@ -20,6 +20,9 @@ func _ready() -> void:
 	ui.updateResourceText(resources);
 
 func _process(delta: float) -> void:
+	if Globals.enemyManager.getEnemiesAlive():
+		return;
+	
 	if currentSelectedInstance!=null:
 		var gridPos = Globals.level.convertToGridSpace(get_global_mouse_position());
 		var worldPos = Globals.level.convertToWorldSpace(gridPos);
@@ -28,9 +31,7 @@ func _process(delta: float) -> void:
 			currentRot+=deg_to_rad(90);
 			currentSelectedInstance.rotation=currentRot;
 		elif Input.is_action_just_pressed("Deselect"):
-			currentSelectedInstance.queue_free();
-			currentSelectedInstance = null;
-			Globals.mouseFollower.enablePlacementInputs(false);
+			removeSelectedPlacement();
 	
 	# Spawn a building when the mouse is clicked
 	if currentSelectedInstance!=null:
@@ -64,17 +65,30 @@ func _process(delta: float) -> void:
 	if currentSelections.size()>0 && selecting:
 		currentSelections[currentSelections.size()-1].updateSelection(get_global_mouse_position());
 
+func removeSelectedPlacement():
+	if currentSelectedInstance!=null:
+		currentSelectedInstance.queue_free();
+		currentSelectedInstance = null;
+	Globals.mouseFollower.enablePlacementInputs(false);
+
+func disable():
+	endSelections();
+	removeSelectedPlacement();
+
 func addSelection():
 	selecting = true;
 	var newSelection = selection.new();
 	newSelection.beginSelection(get_global_mouse_position(), $CanvasGroup)
 	currentSelections.append(newSelection);
 
-func resetSelection():
-	selecting = true;
+func endSelections():
 	for i in currentSelections.size():
 		currentSelections[i].endSelection();
 	currentSelections.clear();
+
+func resetSelection():
+	selecting = true;
+	endSelections();
 	var newSelection = selection.new();
 	newSelection.beginSelection(get_global_mouse_position(), $CanvasGroup)
 	currentSelections.append(newSelection);

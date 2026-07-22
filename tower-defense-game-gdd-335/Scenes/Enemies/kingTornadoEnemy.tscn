@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://85dltrw20so3" path="res://Sprites/Enemies/kingSlime.png" id="2_qjdo2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjcd"]
-size = Vector2(2058, 7339)
+size = Vector2(2058, 2058)
 
 [sub_resource type="Curve" id="Curve_qjdo2"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
@@ -86,15 +86,15 @@ turbulence_noise_scale = 10.0
 
 [node name="Enemy" unique_id=1163011571 instance=ExtResource("1_qjdo2")]
 speed = 300.0
-damageDeal = 45.0
-maxHealth = 10000.0
+damageDeal = 100.0
+maxHealth = 75000.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1097807904]
 visible = false
 position = Vector2(105.99999, -6)
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=527616215]
-position = Vector2(3, -3641.5)
+position = Vector2(3, -729)
 shape = SubResource("RectangleShape2D_pbjcd")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="." index="4" unique_id=1062931774]
