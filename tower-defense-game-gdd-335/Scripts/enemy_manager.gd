@@ -11,7 +11,8 @@ var currentSpawnCooldown: float = 3;
 
 var currentWave = 0;
 @export var waveCooldown: float = 35;
-var currentWaveCooldown: float = 0;
+#var currentWaveCooldown: float = 0;
+var spawningWave: bool = false;
 @export var waveCooldownIncrease: float = 15;
 @export var maxWaveCooldown: float = 60;
 
@@ -24,13 +25,16 @@ var spawnDist: float = 3000;
 var centralBuilding;
 @onready var ui = $"../UI";
 var enemiesAlive: bool = false;
+var inWave: bool = false;
+
+signal waveComplete;
 
 func _ready() -> void:
-	currentWaveCooldown = waveCooldown;
+	#currentWaveCooldown = waveCooldown;
 	Globals.enemyManager = self;
 	
-func getEnemiesAlive():
-	return enemiesAlive;
+func getInWave():
+	return inWave;
 
 func setCentralBuilding(newBuilding):
 	# set the building for the enemies to target
@@ -38,27 +42,35 @@ func setCentralBuilding(newBuilding):
 
 func _process(delta: float) -> void:
 	# spawn a new enemy on a cooldown
+	if (get_child_count()<=0)&&enemiesAlive:
+		waveComplete.emit();
+		inWave = false;
 	enemiesAlive = (get_child_count()>0);
-	if currentWaveCooldown>0:
-		if !enemiesAlive:
-			currentWaveCooldown -= delta;
-			ui.updateWaveTimerText(currentWaveCooldown, currentWave);
-			if currentWaveCooldown<=0:
-				newWave();
-	else:
+	#if currentWaveCooldown>0:
+	#	if !enemiesAlive:
+	#		currentWaveCooldown -= delta;
+	#		ui.updateWaveTimerText(currentWaveCooldown, currentWave);
+	#		if currentWaveCooldown<=0:
+	#			newWave();
+	#else:
+	
+
+	if spawningWave:
 		if currentWave == bossWaves[min(bossWaves.size(), currentBoss)]:
 			spawnBoss();
 			endWave();
 		else:
 			currentSpawnCooldown -= delta;
 			if currentSpawnCooldown <= 0 && centralBuilding!=null:
+				print(spawningWave);
 				if remainingWeight<=0:
 					endWave();
 				for i in enemySpawnAmount*currentWave:
 					spawnRandomEnemy();
 
 func endWave():
-	currentWaveCooldown = min(maxWaveCooldown ,waveCooldown+waveCooldownIncrease*currentWave);
+	#currentWaveCooldown = min(maxWaveCooldown ,waveCooldown+waveCooldownIncrease*currentWave);
+	spawningWave = false;
 	if currentWave%5==0 && currentWave<=30:
 		Globals.level.growLevel(levelIncreasePerWave);
 	
@@ -112,6 +124,8 @@ func calculateChance(enemy: enemyData):
 		return 0;
 
 func newWave():
+	spawningWave = true;
+	inWave = true;
 	currentWave+=1;
 	remainingWeight = weightPerWave * currentWave;
 	Globals.playerManager.disable();

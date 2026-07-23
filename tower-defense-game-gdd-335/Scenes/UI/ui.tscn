@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cxnej7tppitx7" path="res://Scenes/UI/mouse_follower.tscn" id="8_jfwrg"]
 [ext_resource type="PackedScene" uid="uid://bsm6ihc3js7np" path="res://Scenes/UI/boss_health_bar.tscn" id="9_mbl0m"]
 [ext_resource type="PackedScene" uid="uid://dwbcmpr2iq8qg" path="res://Scenes/UI/selection_panel.tscn" id="9_s3gqk"]
+[ext_resource type="Script" uid="uid://bx17thmacrggu" path="res://Scripts/start_wave_button.gd" id="10_s3gqk"]
 
 [node name="UI" type="CanvasLayer" unique_id=1517868707]
 
@@ -81,3 +82,13 @@ pivot_offset = Vector2(43.158, 186.995)
 [node name="SelectionPanel" parent="." unique_id=76515628 instance=ExtResource("9_s3gqk")]
 
 [node name="BossHealthBar" parent="." unique_id=102488980 instance=ExtResource("9_mbl0m")]
+
+[node name="StartWaveButton" type="Button" parent="." unique_id=1105010675]
+offset_left = 665.0
+offset_right = 836.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 29
+text = "start wave"
+script = ExtResource("10_s3gqk")
+
+[connection signal="button_down" from="StartWaveButton" to="StartWaveButton" method="_on_button_down"]

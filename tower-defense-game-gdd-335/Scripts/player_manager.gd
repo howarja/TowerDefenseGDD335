@@ -20,7 +20,7 @@ func _ready() -> void:
 	ui.updateResourceText(resources);
 
 func _process(delta: float) -> void:
-	if Globals.enemyManager.getEnemiesAlive():
+	if Globals.enemyManager.getInWave():
 		return;
 	
 	if currentSelectedInstance!=null:
