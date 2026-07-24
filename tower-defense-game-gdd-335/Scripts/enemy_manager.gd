@@ -28,6 +28,7 @@ var enemiesAlive: bool = false;
 var inWave: bool = false;
 
 signal waveComplete;
+signal waveBegin;
 
 func _ready() -> void:
 	#currentWaveCooldown = waveCooldown;
@@ -126,6 +127,7 @@ func calculateChance(enemy: enemyData):
 func newWave():
 	spawningWave = true;
 	inWave = true;
+	waveBegin.emit();
 	currentWave+=1;
 	remainingWeight = weightPerWave * currentWave;
 	Globals.playerManager.disable();

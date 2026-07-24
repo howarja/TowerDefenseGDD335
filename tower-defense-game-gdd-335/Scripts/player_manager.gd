@@ -1,6 +1,7 @@
 extends Node2D
 
 var resources: Resources = Resources.new();
+const STARTING_MONEY: int = 250;
 
 @onready var ui = $"../UI";
 
@@ -17,6 +18,7 @@ var selecting: bool = false;
 
 func _ready() -> void:
 	Globals.playerManager = self;
+	resources.gold+=STARTING_MONEY;
 	ui.updateResourceText(resources);
 
 func _process(delta: float) -> void:
