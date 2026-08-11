@@ -85,9 +85,12 @@ pivot_offset = Vector2(43.158, 186.995)
 [node name="BossHealthBar" parent="." unique_id=102488980 instance=ExtResource("9_mbl0m")]
 
 [node name="StartWaveButton" type="Button" parent="." unique_id=1105010675]
-offset_left = 665.0
-offset_right = 836.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -171.0
 offset_bottom = 75.0
+grow_horizontal = 0
 theme_override_font_sizes/font_size = 29
 text = "start wave"
 script = ExtResource("10_s3gqk")

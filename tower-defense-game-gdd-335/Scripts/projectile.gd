@@ -19,6 +19,7 @@ func _physics_process(delta: float) -> void:
 func setUp(newSpeed: float, newDir: Vector2, newDamage: float):
 	speed = newSpeed;
 	dir = newDir;
+	look_at(position+dir);
 	damage = newDamage;
 
 func _on_life_time_timeout() -> void:
