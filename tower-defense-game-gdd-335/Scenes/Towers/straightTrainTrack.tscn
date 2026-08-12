@@ -13,8 +13,8 @@
 script = ExtResource("2_rge0n")
 speed = 2.0
 speedUpgrade = 3.0
-maxHealth = 50.0
-healthUpgrade = 15.0
+maxHealth = 10.0
+healthUpgrade = 30.0
 upgradeCosts = Array[int]([10, 20, 40, 80, 160, 320])
 
 [node name="interactedSprite" parent="." index="0" unique_id=2106868985]

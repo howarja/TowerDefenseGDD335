@@ -7,18 +7,17 @@
 
 [sub_resource type="Resource" id="Resource_q4dai"]
 script = ExtResource("3_brufa")
-gold = 6
+gold = 60
 metadata/_custom_type_script = "uid://dpdumby43vmb1"
 
 [node name="EmptyTower" unique_id=1694176448 instance=ExtResource("1_0kpj6")]
 script = ExtResource("2_a66r1")
 resourceGain = SubResource("Resource_q4dai")
-gainTime = 0.45
 requiresTrain = false
-gainTimeUpgrade = 0.0
+gainAmountUpgrade = 0.5
 maxHealth = 1000.0
 upgradeCosts = Array[int]([0])
 upgradeColors = Array[Color]([Color(1, 1, 1, 1)])
 
-[node name="Sprite2D" parent="." index="0" unique_id=1097807904]
+[node name="Sprite2D" parent="." index="1" unique_id=1097807904]
 texture = ExtResource("4_q4dai")

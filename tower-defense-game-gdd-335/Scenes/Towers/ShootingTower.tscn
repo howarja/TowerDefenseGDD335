@@ -22,11 +22,11 @@ radius = 500
 projectileSpeed = 15.0
 projectileDamage = 1.0
 shootDelay = 1.0
-rangeUpgrade = 55.0
-firerateUpgrade = 0.4
-damageUpgrade = 7.0
+rangeUpgrade = 60.0
+firerateUpgrade = 0.2
+damageUpgrade = 3.0
 maxHealth = 30.0
-healthUpgrade = 30.0
+healthUpgrade = 20.0
 
 [node name="interactedSprite" parent="." index="0" unique_id=2106868985]
 visible = true

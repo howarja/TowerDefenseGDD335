@@ -93,18 +93,15 @@ func getSellValue():
 		return null;
 	
 func getRepairCost():
+	var emptyResource = Resources.new();
 	if getCanSell():
 		var healthPercent: float = currentHealth/maxHealth;
 		if healthPercent<1:
 			return resourceValue.negative();
 		else:
-			var emptyResource = Resources.new();
 			return emptyResource;
-		#var healthPercent: float = currentHealth/maxHealth;
-		#var repairCost = Resources.multiplyResources(resourceValue, (1-healthPercent)*2*currentLevel);
-		#return repairCost.negative();
 	else:
-		return null;
+		return emptyResource;
 
 func sellBuilding():
 	if getCanSell():

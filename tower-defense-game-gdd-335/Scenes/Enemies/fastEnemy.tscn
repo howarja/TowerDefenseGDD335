@@ -26,8 +26,8 @@ color = Color(0.49803922, 0, 0.047058824, 0.5764706)
 
 [node name="Enemy" unique_id=1163011571 instance=ExtResource("1_nk0lk")]
 speed = 400.0
-damageDeal = 0.5
-maxHealth = 50.0
+damageDeal = 2.0
+maxHealth = 15.0
 cornerDistance = 13.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1097807904]
