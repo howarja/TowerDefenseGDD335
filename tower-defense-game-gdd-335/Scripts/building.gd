@@ -88,7 +88,7 @@ func getCanSell():
 	
 func getSellValue():
 	if getCanSell():
-		return Resources.divideResrouces(resourceValue, 2);
+		return Resources.multiplyResources(resourceValue, currentLevel+1);
 	else:
 		return null;
 	

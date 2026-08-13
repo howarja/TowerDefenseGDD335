@@ -36,6 +36,9 @@ func _ready() -> void:
 	
 func getInWave():
 	return inWave;
+	
+func getCurrentWave():
+	return currentWave;
 
 func setCentralBuilding(newBuilding):
 	# set the building for the enemies to target
