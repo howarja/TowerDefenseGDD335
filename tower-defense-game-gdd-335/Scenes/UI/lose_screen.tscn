@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b6d3y52kpomh8"]
+
+[ext_resource type="Script" uid="uid://c4bkbfsu2yr4l" path="res://Scenes/UI/lose_screen.gd" id="1_d1sde"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1sde"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.88235295)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="LoseScreen" type="Panel" unique_id=1570847613]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d1sde")
+script = ExtResource("1_d1sde")
+
+[node name="Lose text" type="RichTextLabel" parent="." unique_id=1591797335]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.5
+offset_right = 540.5
+offset_bottom = 332.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 71
+bbcode_enabled = true
+text = "[center]You have failed.
+You reached wave x
+
+"
+
+[node name="Button" type="Button" parent="." unique_id=1873639698]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.74194
+offset_top = -56.0
+offset_right = 142.74194
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 62
+text = "Retry"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

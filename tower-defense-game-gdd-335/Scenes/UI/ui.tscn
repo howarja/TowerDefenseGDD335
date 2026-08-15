@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dwbcmpr2iq8qg" path="res://Scenes/UI/selection_panel.tscn" id="9_s3gqk"]
 [ext_resource type="Script" uid="uid://bx17thmacrggu" path="res://Scripts/start_wave_button.gd" id="10_s3gqk"]
 [ext_resource type="Script" uid="uid://cst6ki4qew7g6" path="res://Scripts/new_wave_animation.gd" id="11_pmm6b"]
+[ext_resource type="PackedScene" uid="uid://b6d3y52kpomh8" path="res://Scenes/UI/lose_screen.tscn" id="12_vy225"]
 
 [sub_resource type="Animation" id="Animation_s3gqk"]
 resource_name = "NewWave"
@@ -24,7 +25,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-779, 153), Vector2(600, 153), Vector2(600, 153), Vector2(2204.65, 153)]
+"values": [Vector2(-849.405, 153), Vector2(600, 153), Vector2(600, 153), Vector2(2204.65, 153)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -78,7 +79,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-779, 153), Vector2(600, 153), Vector2(600, 153), Vector2(1983, 153)]
+"values": [Vector2(-849.405, 153), Vector2(600, 153), Vector2(600, 153), Vector2(1983, 153)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -224,5 +225,7 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 77
 bbcode_enabled = true
 text = "[center]wave 5"
+
+[node name="LoseScreen" parent="." unique_id=1570847613 instance=ExtResource("12_vy225")]
 
 [connection signal="button_down" from="StartWaveButton" to="StartWaveButton" method="_on_button_down"]

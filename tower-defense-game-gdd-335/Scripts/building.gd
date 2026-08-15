@@ -1,3 +1,4 @@
+class_name building
 extends Node2D
 
 var buildingName: String = "";
@@ -30,7 +31,7 @@ func _ready() -> void:
 	sprite.scale /= 1.5;
 	currentHealth = maxHealth;
 	$Sprite2D.modulate = upgradeColors[currentLevel];
-	interactedSprite.show();
+	#interactedSprite.show();
 
 func damage(amount: float):
 	# lower the health of this tower, queueFree if tower has no health
