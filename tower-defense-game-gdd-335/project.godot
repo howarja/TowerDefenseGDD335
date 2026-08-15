@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TowerDefenseGameGDD335"
-run/main_scene="uid://d2osb17w38dcu"
+run/main_scene="uid://bupoxs0c6yvti"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
