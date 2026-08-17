@@ -14,6 +14,7 @@ var trains = [];
 @export var tileSize = 97;
 @export var initialOreDepositCount: int = 18;
 @export var totalOreDepositCount: int = 270;
+@export var tutorial : bool = false;
 @onready var tile = preload("res://Scenes/Towers/tile.tscn");
 @onready var oreDeposit = preload("res://Scenes/Towers/oreDeposit.tscn");
 @onready var centralBuildingPackedScene = preload("res://Scenes/Towers/centralBuilding.tscn");
@@ -45,13 +46,16 @@ func _ready() -> void:
 	enemyManger.setCentralBuilding(buildings[gridX/2][gridY/2]);
 	
 	# generate ore 
-	var oreDepositPositions = [];
-	for i in totalOreDepositCount:
-		var newPos = Vector2i(randf_range(0,gridX), randf_range(0,gridY));
-		replaceTile(newPos, oreDeposit, true);
-	# generate specifc ore deposits in the intital area
-	for i in initialOreDepositCount:
-		var newPos = Vector2i(randf_range(visibleX.x,visibleX.y), randf_range(visibleY.x,visibleY.y));
+	if !tutorial:
+		for i in totalOreDepositCount:
+			var newPos = Vector2i(randf_range(0,gridX), randf_range(0,gridY));
+			replaceTile(newPos, oreDeposit, true);
+		# generate specifc ore deposits in the intital area
+		for i in initialOreDepositCount:
+			var newPos = Vector2i(randf_range(visibleX.x,visibleX.y), randf_range(visibleY.x,visibleY.y));
+			replaceTile(newPos, oreDeposit, true);
+	else:
+		var newPos = Vector2i(gridX/2-2, gridY/2-3);
 		replaceTile(newPos, oreDeposit, true);
 	setVisibility();
 

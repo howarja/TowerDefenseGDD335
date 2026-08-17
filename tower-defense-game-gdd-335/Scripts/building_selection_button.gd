@@ -1,4 +1,5 @@
 extends "res://Scripts/hoverButton.gd" 
+class_name buildingSelectionButton
 
 @export var building: BuildingData;
 
@@ -22,3 +23,6 @@ func _on_mouse_exited():
 	Globals.buildingInfo.disable();
 	mouseExited(0);
 	#print("mouse exited");
+	
+func getBuildingData():
+	return building;
