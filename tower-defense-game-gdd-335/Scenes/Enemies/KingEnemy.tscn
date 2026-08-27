@@ -26,9 +26,9 @@ color = Color(0.49803922, 0, 0.047058824, 0.5764706)
 
 [node name="Enemy" unique_id=1163011571 instance=ExtResource("1_omg3w")]
 scale = Vector2(12, 12)
-speed = 180.0
-damageDeal = 50.0
-maxHealth = 25000.0
+damageDeal = 15.0
+maxHealth = 8000.0
+moneyOnKill = 10000
 cornerDistance = 855.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1097807904]

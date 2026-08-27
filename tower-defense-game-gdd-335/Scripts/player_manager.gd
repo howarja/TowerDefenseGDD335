@@ -1,4 +1,5 @@
 extends Node2D
+class_name playerManager
 
 var resources: Resources = Resources.new();
 const STARTING_MONEY: int = 250;

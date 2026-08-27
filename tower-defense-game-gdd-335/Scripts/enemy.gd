@@ -7,6 +7,7 @@ extends CharacterBody2D
 var currentDamageCooldown: float = 0;
 
 @export var maxHealth: float = 100;
+@export var moneyOnKill: int = 0;
 var currentHealth: float = 100;
 @onready var healthBar = $HealthBar;
 
@@ -57,6 +58,9 @@ func damage(amount: float):
 	deathParticles.emitting = true;
 	if currentHealth <= 0:
 		healthBar.setVisiblity(false, false);
+		var newGold = Resources.new();
+		newGold.gold = moneyOnKill;
+		Globals.playerManager.addResources(newGold);
 		queue_free();
 
 func getScale():

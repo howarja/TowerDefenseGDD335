@@ -1,6 +1,6 @@
 extends Node
 
-var playerManager;
+var playerManager : playerManager;
 var enemyManager;
 var buildingInfo;
 var level;

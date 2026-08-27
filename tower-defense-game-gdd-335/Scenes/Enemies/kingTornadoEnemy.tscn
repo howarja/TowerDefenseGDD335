@@ -85,9 +85,10 @@ scale_curve = SubResource("CurveTexture_k31rk")
 turbulence_noise_scale = 10.0
 
 [node name="Enemy" unique_id=1163011571 instance=ExtResource("1_qjdo2")]
-speed = 300.0
-damageDeal = 100.0
-maxHealth = 75000.0
+speed = 200.0
+damageDeal = 25.0
+maxHealth = 15000.0
+moneyOnKill = 10000
 
 [node name="Sprite2D" parent="." index="0" unique_id=1097807904]
 visible = false

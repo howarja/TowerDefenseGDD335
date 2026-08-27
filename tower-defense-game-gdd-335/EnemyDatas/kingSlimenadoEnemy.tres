@@ -7,7 +7,8 @@
 script = ExtResource("2_w2huy")
 enemyName = "KING SLIMENADO"
 scene = ExtResource("1_1e3bg")
-minWaves = 20
+minWaves = 35
 initialChance = 2
 minMaxChancePercent = Vector2(0, 100)
+weight = 100.0
 metadata/_custom_type_script = "uid://buksg2ouisqh1"

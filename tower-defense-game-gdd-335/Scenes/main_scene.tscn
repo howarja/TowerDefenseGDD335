@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://cu5hpviry8edp" path="res://Scripts/player_manager.gd" id="4_iacmt"]
 [ext_resource type="PackedScene" uid="uid://cttxol4pj5v53" path="res://Scenes/UI/ui.tscn" id="5_6ev3c"]
 [ext_resource type="Resource" uid="uid://bg47y10mbj8oc" path="res://EnemyDatas/bigEnemy.tres" id="5_drdnd"]
-[ext_resource type="Script" uid="uid://duu0e2cpaind6" path="res://Scripts/ui.gd" id="6_6ev3c"]
 [ext_resource type="Resource" uid="uid://dlnoci7jw5nji" path="res://EnemyDatas/fastEnemy.tres" id="6_ioaeq"]
 [ext_resource type="Resource" uid="uid://bmr2p7si7tyqb" path="res://EnemyDatas/kingEnemy.tres" id="7_7ewk0"]
 [ext_resource type="Resource" uid="uid://c7tvvvy4o7hnt" path="res://EnemyDatas/regularEnemy.tres" id="8_lhp3t"]
@@ -34,7 +33,7 @@ waveCooldown = 75.0
 waveCooldownIncrease = 0.0
 maxWaveCooldown = 75.0
 bosses = Array[ExtResource("4_76v2p")]([ExtResource("9_drdnd"), ExtResource("7_7ewk0"), ExtResource("10_ioaeq")])
-bossWaves = Array[int]([10, 15, 20])
+bossWaves = Array[int]([10, 20, 30])
 
 [node name="PlayerManager" type="Node2D" parent="." unique_id=1572353153]
 script = ExtResource("4_iacmt")
@@ -45,4 +44,3 @@ enabledCol = Color(1, 1, 1, 0.50980395)
 self_modulate = Color(1, 1, 1, 0.48235294)
 
 [node name="UI" parent="." unique_id=1517868707 instance=ExtResource("5_6ev3c")]
-script = ExtResource("6_6ev3c")

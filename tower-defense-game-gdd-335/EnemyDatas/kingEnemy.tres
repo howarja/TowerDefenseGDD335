@@ -7,9 +7,9 @@
 script = ExtResource("2_pueb8")
 enemyName = "King Slime"
 scene = ExtResource("1_pedof")
-minWaves = 10
+minWaves = 25
 initialChance = 1
 chanceChangePerWave = 2.0
 minMaxChancePercent = Vector2(0, 100)
-weight = 15.0
+weight = 60.0
 metadata/_custom_type_script = "uid://buksg2ouisqh1"
