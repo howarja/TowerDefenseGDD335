@@ -19,3 +19,5 @@ https://drive.google.com/file/d/1JLVvIJeR_ZIYcqySHZhdT1c2NRk5dHmo/view?usp=shari
 
 Old Demo video(speed up to fit on github):
 https://github.com/user-attachments/assets/b74c16bb-f76b-4cc7-beed-d323894ac040
+
+<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/fbaabbf8-6b63-4280-a4e8-a7028a5ad521" />
